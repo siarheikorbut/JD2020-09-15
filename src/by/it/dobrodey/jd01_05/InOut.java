@@ -41,9 +41,14 @@ public class InOut {
         }
 
     }
-
-
-
+    static void printArray(int[ ] arr, String name, int columnCount) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("%s[% -3d]=%-4d", name, i, arr[i]);
+            if ((i + 1) % columnCount == 0 || i == arr.length - 1) {
+                System.out.println();
+            }
+        }
+    }
 
 
 
