@@ -29,8 +29,5 @@ public class TaskB {
             a = log10(abs(b+2.74));
             System.out.printf("For x = %f b = %f and a = %f\n",x,b,a);
         }
-
-
     }
-
 }
