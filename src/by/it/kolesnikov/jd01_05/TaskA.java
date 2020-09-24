@@ -26,12 +26,12 @@ public class TaskA {
         double y=part1-part2+part3-part4;
         System.out.printf("For a=%f and b=%f y=%f\n ",a,b,y);
     }
-    private static void step3(){
-        double x= 12.1;
-        double step=3.75;
-        for (double a=-5; a<12;a=a+step){
-            double f=pow(E,a*x)-3.45*a;
-            System.out.println("For a="+a+" f(y)="+f);
+    private static void step3() {
+        double x = 12.1;
+        double step = 3.75;
+        for (double a = -5; a < 12; a = a + step) {
+            double f = pow(E, a * x) - 3.45 * a;
+            System.out.println("For a=" + a + " f(y)=" + f);
         }
     }
 
