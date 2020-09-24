@@ -2,6 +2,11 @@ package by.it.siarheikorbut.jd01_02;
 
 import java.util.Scanner;
 
+/**
+ * @author Siarhei Korbut
+ * @see <a href="https://drive.google.com/file/d/1BOB3Xi2qWYN9DxaTMQBwnlKQAJzOx1IK/view?usp=sharing">Задания JD01_02 ( А )</a>
+ */
+
 public class TaskA {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

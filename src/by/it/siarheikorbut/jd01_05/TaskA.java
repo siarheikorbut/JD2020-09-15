@@ -1,10 +1,16 @@
 package by.it.siarheikorbut.jd01_05;
 
 import static java.lang.Math.*;
-
+/**
+ * @author Сергей Корбут
+ * @see <a href="https://drive.google.com/file/d/1KNBofHHOxyARzccIFNqRvxU8ks8NY0n4/view?usp=sharing"></a>
+ */
 public class TaskA {
     public static void main(String[] args) {
         step1();
+        //step2();
+        //step3();
+
     }
 
     private static void step1() {
