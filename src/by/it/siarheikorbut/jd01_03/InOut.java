@@ -1,16 +1,13 @@
 package by.it.siarheikorbut.jd01_03;
 
 /**
- * @author Сергей Корбут
- * @see
+ * @author Siarhei Korbut
+ * @see <a href="https://drive.google.com/file/d/1L5Z3U4Iv8EyTak0vgQ3IvNlZMXvPONAH/view?usp=sharing">Задания JD01_03 ( A )</a>
  */
 
 public class InOut {
-    /**
-     * Метод приобразования строки в массив
-     * @param line Входная строка (с числами)
-     * @return Возвращаемый массив действительных чисел
-     */
+
+    //Ввод одномерного массива.
     static double[] getArray(String line) {
         line = line.trim();
         String[] strArray = line.split(" ");
@@ -21,11 +18,7 @@ public class InOut {
         return array;
     }
 
-    /**
-     *  Вывод метода на консоль
-     * @param arr входной массив
-     */
-
+    //Простой вывод одномерного массива.
     static void printArray(double[] arr) {
         for (double element : arr) {
             System.out.print(element + " ");
@@ -33,9 +26,10 @@ public class InOut {
         System.out.println();
     }
 
-    static void printArray(double[] arr, String name, int columnCount) {
+    //Форматный вывод одномерного массива.
+    static void printArray(double[] arr, int columnCount) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.printf("%s[% -3d]=%-8.3f   ", name, i, arr[i]);
+            System.out.printf("%s[% -3d]=%-8.3f   ", "A", i, arr[i]);
             if ((i + 1) % columnCount == 0 || i == arr.length - 1) {
                 System.out.println();
             }
