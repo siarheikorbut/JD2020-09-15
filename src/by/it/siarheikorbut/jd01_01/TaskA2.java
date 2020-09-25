@@ -10,6 +10,8 @@ package by.it.siarheikorbut.jd01_01;
 
 class TaskA2 {
     public static void main(String[] args) {
+
+        //Вывод на экран строки 5 раз.
         String a = "Я начинаю изучать Java!";
         for (int i = 0; i < 5; i++) {
             System.out.println(a);

@@ -10,6 +10,8 @@ Hello world!
 
 class TaskA1 {
     public static void main(String[] args) {
+
+        //Вывод строки на экран.
         System.out.println("Hello world!");
 
     }

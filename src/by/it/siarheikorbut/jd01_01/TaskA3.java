@@ -7,9 +7,11 @@ package by.it.siarheikorbut.jd01_01;
 
 class TaskA3 {
     public static void main(String[] args) {
+
+        //Изменение переменных и вывод их на экран.
         int i = 3;
         int j = 4;
         int k = (i * i) + (j * j);
-        System.out.println(i+"*"+i+"+"+j+"*"+j+"="+k);
+        System.out.println(i + "*" + i + "+" + j + "*" + j + "=" + k);
     }
 }
