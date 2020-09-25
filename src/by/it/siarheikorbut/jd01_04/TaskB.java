@@ -3,69 +3,56 @@ package by.it.siarheikorbut.jd01_04;
 import java.util.Scanner;
 
 /**
- * @author Сергей Корбут
- * @see <a href="https://drive.google.com/file/d/1KNBofHHOxyARzccIFNqRvxU8ks8NY0n4/view?usp=sharing"></a>
+ * @author Siarhei Korbut
+ * @see <a href="https://drive.google.com/file/d/1BZ7AGComLlo0VPQTnmOJxWjrZpv6hLzo/view?usp=sharing">Задание JD01_04 ( B )</a>
  */
 
 public class TaskB {
     public static void main(String[] args) {
+
+        //Ввод с консоли колличества работников.
         Scanner sc = new Scanner(System.in);
-        //int n = 0;
-        //for (int i = 0; i < n; i++) {
-            // n = sc.nextInt();
-       // }
+        int n = sc.nextInt();
 
-
-
-        String[] surname = new String[4];
-        for (int i = 0; i < surname.length; i++) {
-            surname[i] = sc.nextLine();
+        //Ввод одномерного массива фамилий работников
+        String[] surname = new String[n];
+        for (int i = 0; i < n; i++) {
+            surname[i] = sc.next();
         }
-        System.out.println("Введите зарплату для " + surname[1]);
-        int[][] salary = new int[4][5];
+        //Обьявление и инициализация переменных.
+        int sumSalary = 0;
+        int totalSalary = 0;
+        double averSalary = 0;
+
+        //Ввод двумерного массива для зарплат работников за четыре квартала.
+        int[][] salary = new int[n][4];
         for (int i = 0; i < salary.length; i++) {
+            System.out.println("Введите зарплату для " + surname[i]);
             for (int j = 0; j < salary[i].length; j++) {
-                salary[0][i] = sc.nextInt();
-                break;
-            }
-        }
-        System.out.println("Введите зарплату для " + surname[2]);
-        for (int i = 0; i < salary.length; i++) {
-            for (int j = 0; j < salary[i].length; j++) {
-                salary[1][i] = sc.nextInt();
-                break;
-            }
-        }
-        System.out.println("Введите зарплату для " + surname[3]);
-        for (int i = 0; i < salary.length; i++) {
-            for (int j = 0; j < salary[i].length; j++) {
-                salary[2][i] = sc.nextInt();
-                break;
-            }
-        }
-        /**
-         * Общая сумма всех выплат
-         */
-        int x = salary.length;
-        int sum = 0;
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < x; j++) {
-                sum += salary[i][j];
-            }
-        }
-        /**
-         * Среднеарифметическая квартальная зарплата
-         */
-        double averSalary = sum / 12.0;
+                salary[i][j] = sc.nextInt();
 
+                //Подсчет общей суммы всех выплат
+                totalSalary += salary[i][j];
+
+                //Подсчет среднеарифметической квартальной зарплаты с точностью до четвертого знака.
+                averSalary = totalSalary / (n * 4.0);
+            }
+        }
+
+        //Построение таблицы доходов работников с фамилиями по кварталам и итогом за год.
         System.out.println("---------------------------------------------------------------");
         System.out.printf("%-10s%-12s%-12s%-12s%-12s%-12s\n", "Фамилия", "Квартал 1", "Квартал 2", "Квартал 3", "Квартал 4", "Итого");
         System.out.println("---------------------------------------------------------------");
-        System.out.printf("%7s:  %-12d%-12d%-12d%-12d%-12d\n", surname[1], salary[0][0], salary[0][1], salary[0][2], salary[0][3], (salary[0][0] + salary[0][1] + salary[0][2] + salary[0][3]));
-        System.out.printf("%7s:  %-12d%-12d%-12d%-12d%-12d\n", surname[2], salary[1][0], salary[1][1], salary[1][2], salary[1][3], (salary[1][0] + salary[1][1] + salary[1][2] + salary[1][3]));
-        System.out.printf("%7s:  %-12d%-12d%-12d%-12d%-12d\n", surname[3], salary[2][0], salary[2][1], salary[2][2], salary[2][3], (salary[2][0] + salary[2][1] + salary[2][2] + salary[2][3]));
+        for (int i = 0; i < n; i++) {
+            sumSalary = salary[i][0] + salary[i][1] + salary[i][2] + salary[i][3];
+            System.out.printf("%7s:  %-12d%-12d%-12d%-12d%-12d\n", surname[i], salary[i][0], salary[i][1], salary[i][2], salary[i][3], totalSalary);
+        }
         System.out.println("---------------------------------------------------------------");
-        System.out.printf("%-10s%-12d\n", "Итого", sum);
+
+        //Вывод общей суммы всех выплат.
+        System.out.printf("%-10s%-12d\n", "Итого", sumSalary);
+
+        //Вывод среднеарифметической квартальной зарплаты.
         System.out.printf("%-10s%-12.6f\n", "Средняя", averSalary);
     }
 }
