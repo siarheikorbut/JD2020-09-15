@@ -36,17 +36,19 @@ import java.io.InputStreamReader;
 
 class TaskC3 {
     public static void main(String[] args) throws IOException {
+
+        //Ввод с клавиатуры веса человека в кг. и вывод на экран.
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int weight = Integer.parseInt(reader.readLine());
         System.out.println(getWeight(weight));
     }
 
-    public static double getWeight(int weight) throws IOException {
+    //Расчет веса человека на Марсе и округление до сотых.
+    public static double getWeight(int weight) {
 
         double marsSpeed = 3.86;
         double earthSpeed = 9.81;
         double marsWeight = weight / earthSpeed * marsSpeed;
-        double result = Math.round(marsWeight*100.0)/100.0;
-        return result;
+        return Math.round(marsWeight * 100.0) / 100.0;
     }
 }

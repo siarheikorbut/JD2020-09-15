@@ -19,6 +19,8 @@ OCT:42+32=74
 */
 class TaskC2 {
     public static void main(String[] args) throws IOException {
+
+        //Ввод с клавиатуры двух чисел и вывод их суммы на экран в различных системах счисления.
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         int a = Integer.parseInt(reader.readLine());
@@ -26,9 +28,9 @@ class TaskC2 {
 
         int sum = a + b;
 
-        System.out.println("DEC:"+a+"+"+b+"="+sum);
-        System.out.println("BIN:"+Integer.toBinaryString(a)+"+"+Integer.toBinaryString(b)+"="+Integer.toBinaryString(sum));
-        System.out.println("HEX:"+Integer.toHexString(a)+"+"+Integer.toHexString(b)+"="+Integer.toHexString(sum));
-        System.out.println("OCT:"+Integer.toOctalString(a)+"+"+Integer.toOctalString(b)+"="+Integer.toOctalString(sum));
+        System.out.println("DEC:" + a + "+" + b + "=" + sum);
+        System.out.println("BIN:" + Integer.toBinaryString(a) + "+" + Integer.toBinaryString(b) + "=" + Integer.toBinaryString(sum));
+        System.out.println("HEX:" + Integer.toHexString(a) + "+" + Integer.toHexString(b) + "=" + Integer.toHexString(sum));
+        System.out.println("OCT:" + Integer.toOctalString(a) + "+" + Integer.toOctalString(b) + "=" + Integer.toOctalString(sum));
     }
 }

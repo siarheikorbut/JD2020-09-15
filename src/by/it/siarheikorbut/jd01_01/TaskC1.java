@@ -17,6 +17,8 @@ Sum = 60
 */
 class TaskC1 {
     public static void main(String[] args) throws IOException {
+
+        //Ввод двух числ с клавиатуры и вывод их на экран.
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         int a = Integer.parseInt(reader.readLine());
@@ -24,6 +26,6 @@ class TaskC1 {
 
         int sum = a + b;
 
-        System.out.println("Sum"+" = "+sum);
+        System.out.println("Sum" + " = " + sum);
     }
 }
