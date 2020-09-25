@@ -5,16 +5,14 @@ import static java.lang.Math.*;
 
 public class TaskC {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите число от 20 до 40");
-        int n = sc.nextInt();
-        double [] array = new double[n];
-        int i;
-        for ( i = 0; i < array.length ; i++) {
-            double x =(Math.random() *(9-5.33)+5.33);
-            //if ((x >= 5.33) && (x <= 9)) {
+        int numberArray = 20 + (int)(Math.random() + 20);
+        double [] array = new double[numberArray];
+        double x = 5.33;
+        double st = (9 - 5.33)/(numberArray+1);
+        for (int i = 0; i < array.length ; i++) {
                 double z = cbrt((x * x) + 4.5);
                     array[i] = z;
+                    x = x+st;
         }
         printArray(array, "V", 5);
         double [] arraySecond = recieveNewArray (array);
