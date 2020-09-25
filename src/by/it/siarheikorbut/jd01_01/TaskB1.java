@@ -23,6 +23,8 @@ import java.util.Scanner;
 
 class TaskB1 {
     public static void main(String[] args) {
+
+        //Считывание с клавиатуры целого числа и вывод квадрата этого числа на экран.
         Scanner sc = new Scanner(System.in);
         int i = sc.nextInt();
         int j = i * i;

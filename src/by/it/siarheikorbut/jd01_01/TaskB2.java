@@ -1,4 +1,5 @@
 package by.it.siarheikorbut.jd01_01;
+
 /*
 Подойдет только 20
 В методе main расставь правильно знаки плюс и минус, чтобы значение переменной result получилось равным 20.
@@ -15,13 +16,14 @@ package by.it.siarheikorbut.jd01_01;
 
  */
 class TaskB2 {
-    private static int a = 1;
-    private static int b = 3;
-    private static int c = 9;
-    private static int d = 27;
 
     public static void main(String[] args) {
 
+        //Расстановка знаков переменный и вывод result на экран со значением 20.
+        int a = 1;
+        int b = 3;
+        int c = 9;
+        int d = 27;
         int result = -a + b - c + d;
 
         System.out.println(result);
