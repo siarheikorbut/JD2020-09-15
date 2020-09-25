@@ -19,24 +19,25 @@ public class TaskB {
     }
 
     private static void step2() {
-
+        double b =0;
+        double a = 0;
         for (double x = -5.5; x < 2; x = x+0.5) {
-            double b = Double.MAX_VALUE;
-
-            if (((x / 2) > -2) && ((x / 2) <= -1)){
+            if ((x / 2) > -2 && (x / 2) <= -1){
                 b = sin(pow(x, 2));
+                System.out.println("При х/2 = " + x/2 + "а = " + a);
             }
             if (((x / 2) > -1) && ((x / 2) < 0.2)){
                 b =cos(pow(x, 2));
+                System.out.println("При х/2 = " + x/2 + "а = " + a);
             }
             if ((x / 2) == 0.2){
                 b = 1.0/tan(pow(x,2));
+                System.out.println("При х/2 = " + x/2 + "а = " + a);
             }
-            if (b==Double.MAX_VALUE){
-                System.out.printf("При x/2=%6.2f значения а не определено\n", x/2);
+            if (b==0){
+                System.out.println("При х/2 = " + x/2 + "вычисления не опрделены");
             } else {
-                double a = log(abs(b + 2.74));
-                System.out.printf("При  x/2=%6.2f a=%7.4f\n", x/2, a);
+                a = log10(abs(b + 2.74));
             }
 
         }
