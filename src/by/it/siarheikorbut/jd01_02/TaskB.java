@@ -4,24 +4,26 @@ import java.util.Scanner;
 
 /**
  * @author Siarhei Korbut
- * @see <a href="https://drive.google.com/file/d/1BOB3Xi2qWYN9DxaTMQBwnlKQAJzOx1IK/view?usp=sharing">Задания JD01_02 ( B )</a>
+ * @see <a href="https://drive.google.com/file/d/1BOB3Xi2qWYN9DxaTMQBwnlKQAJzOx1IK/view?usp=sharing">Задание JD01_02 ( B )</a>
  */
 
 public class TaskB {
     public static void main(String[] args) {
 
-        step1();
-
+        //Ввод с консоли чисел от 1 до 12.
         Scanner sc = new Scanner(System.in);
         int month = sc.nextInt();
-        step2(month);
 
+        //Вызов методов.
+        step1();
+        step2(month);
         double a = sc.nextDouble();
         double b = sc.nextDouble();
         double c = sc.nextDouble();
         step3(a, b, c);
     }
 
+    //Вывод чисел от 1 до 25 в виде матрицы N x N слева направо и сверху вниз.
     static void step1() {
         for (int i = 0; i <= 25; i++) {
             System.out.print(i + " ");
@@ -32,6 +34,7 @@ public class TaskB {
 
     }
 
+    //Вывод в консоль названий месяцев.
     static void step2(int month) {
         switch (month) {
             case 1 -> System.out.println("январь");
@@ -50,6 +53,7 @@ public class TaskB {
         }
     }
 
+    //Расчёт и вывод корней квадратного уравнения.
     static void step3(double a, double b, double c) {
         double dis = b * b - 4 * a * c;
         if (dis < 0) {
