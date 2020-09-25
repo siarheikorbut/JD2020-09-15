@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 
 public class Helper {
+
+    //Поиск минимального значения в одномерном массиве типа double.
     static double findMin(double[] arr) {
         double minValue = arr[0];
         for (int i = 0; i < arr.length; i++) {
@@ -14,6 +16,7 @@ public class Helper {
         return minValue;
     }
 
+    //Поиск максимального значения в одномерном массиве типа double.
     static double findMax(double[] arr) {
         double maxValue = arr[0];
         for (int i = 0; i < arr.length; i++) {
@@ -24,6 +27,7 @@ public class Helper {
         return maxValue;
     }
 
+    //Сортировка по возрастанию одномерных массивов типа double.
     static void sort(double[] arr) {
         double arrSort = arr[0];
         Arrays.sort(arr);
@@ -34,6 +38,7 @@ public class Helper {
         }
     }
 
+    //Умножение матрицы на вектор типа double.
     static double[] mul(double[][] matrix, double[] vector) {
         double[] resVector = new double[matrix.length];
         for (int i = 0; i < resVector.length; i++) {
@@ -46,6 +51,7 @@ public class Helper {
         return resVector;
     }
 
+    //Умножение матрицы на матрицу типа double.
     static double[][] mul(double[][] matrixLeft, double[][] matrixRight) {
         double m = matrixLeft.length;
         double n = matrixRight[0].length;
