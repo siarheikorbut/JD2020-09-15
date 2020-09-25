@@ -2,7 +2,7 @@ package by.it.dobrodey.jd01_05;
 
 import java.util.Arrays;
 
-import static java.lang.Math.random;
+
 
 public class TaskC2 {
     public static void main(String[] args) {
@@ -12,11 +12,12 @@ public class TaskC2 {
             arrA[i] = (int) (Math.random()*(450-103))+103;
             if (0.1*arrA[i]>i){sizeB=sizeB+1;}
         }
+        System.out.println("Array A:");
         InOut.printArray(arrA,"A",5);
         int[] arrB = new int[sizeB];
         int elementB = 0;
         for (int i = 0; i < 31.0; i++) {
-            if ((arrA[i]/10.0)>(double) i){
+            if ((double) i<(arrA[i]/10.0)){
                 arrB[elementB]=arrA[i];
                 elementB = elementB+1;
             }
