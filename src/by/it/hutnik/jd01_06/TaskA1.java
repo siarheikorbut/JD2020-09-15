@@ -9,6 +9,7 @@ public class TaskA1 {
         Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]+");
         Matcher matcher = pattern.matcher(text);
         while ((matcher.find())) {
+            System.out.println();
 
 
         }
