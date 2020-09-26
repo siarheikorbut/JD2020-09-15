@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 public class TaskA1 {
     public static void main(String[] args) {
         StringBuilder text = new StringBuilder(Poem.text);
-        Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]+");
-        Matcher matcher = pattern.matcher(text);
+        Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]{4,}");
+        Matcher matcher = pattern.matcher(Poem.text);
         while (matcher.find()){
             int pos=matcher.start();
             text.setCharAt(pos+3,'#');
