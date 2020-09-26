@@ -8,6 +8,7 @@ public class TaskA {
         step1a();
         step2();
         step3();
+      
     }
 
 
@@ -41,5 +42,6 @@ public class TaskA {
             System.out.printf("При а=%6.2f f%g%n", a, f);
         }
     }
+
 
 }
