@@ -1,6 +1,8 @@
 package by.it.akhmelev.jd01_05;
 
 
+import java.util.regex.Pattern;
+
 import static java.lang.Math.*;
 
 public class TaskA {
