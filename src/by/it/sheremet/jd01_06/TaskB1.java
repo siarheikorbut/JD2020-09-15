@@ -8,11 +8,10 @@ public class TaskB1 {
         StringBuilder text = new StringBuilder(Poem.text);
         Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]{4,}");
         Matcher matcher= pattern.matcher(text);
-        while (matcher.find(){
-            if (checkWord) {
+        while (matcher.find()){
 
             }
         }
-        }
+
 
 }
