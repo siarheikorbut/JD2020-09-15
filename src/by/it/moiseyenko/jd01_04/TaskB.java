@@ -9,10 +9,4 @@ public class TaskB {
         Scanner sc = new Scanner(System.in);
         int n= sc.nextInt();
     }
-    InputStreamReader name=new InputStreamReader(System.in);
-    BufferedReader line=new BufferedReader(name);
-    String out= line.readLine();
-
-
-
 }
