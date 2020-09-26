@@ -7,6 +7,8 @@ public class TaskC {
     public static void main(String[] args) {
         Random random = new Random();
          step1(random.nextInt(20)+20);
+        for (int i = 8000; i < 8500; i++) {
+            pr(Character.toString(i),2);}
     }
     static void  step1(int a){
         Random random = new Random();
@@ -67,8 +69,7 @@ public class TaskC {
         int unitM =0;
         System.out.println("Массив A[]");
 
-        for (int i = 0; i < 1000; i++) {
-        pr(Character.toString(i),2);}
+
         for (int i = 0; i < arrayA.length; i++) {
             x = (random.nextInt(367) + 533) / 100.0;
             z = Math.pow(x * x + 4.5, 1 / 3.0);
