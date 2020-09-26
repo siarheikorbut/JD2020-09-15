@@ -8,7 +8,7 @@ public class TaskA {
         step1a();
         step2();
         step3();
-      
+
     }
 
 
