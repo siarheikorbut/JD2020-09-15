@@ -6,20 +6,21 @@ import java.util.regex.Pattern;
 public class TaskA1 {
     public static void main(String[] args) {
         StringBuilder text = new StringBuilder(Poem.text);
-        Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]{4,}");
-        Matcher matcher = pattern.matcher(text);
+        Pattern pattern = Pattern.compile("[а-щёА-ЩЁ]{4,}");
+        Matcher matcher = pattern.matcher(Poem.text);
         while (matcher.find()) {
             String word = matcher.group();
-            int pos = matcher.start();
+          int pos = matcher.start();
             text.setCharAt(pos + 3, '#');
             if (matcher.end() - matcher.start() > 6) {
                 text.setCharAt(pos + 6, '#');
             }
-            System.out.println(word + " " + matcher.start());
+            System.out.println(word );
         }
 
 
-        System.out.println(Poem.text);
+
+       System.out.println(text);
     }
 }
 
