@@ -31,7 +31,7 @@ public class TaskC1 {
         int poz = 0;
         while (stroka.length() < maxLengh) {
             int space = stroka.indexOf(" ", poz);
-            if (space == -1) {
+            if (space < 0) {
                 poz = 0;
                 continue;}
             stroka.insert(space+1, " ");
