@@ -23,13 +23,11 @@ public class TaskA2 {
                 counters = Arrays.copyOf(counters, counters.length + 1);
                 counters[counters.length - 1] = 1;
             }
-
         }
+
         for (int i = 0; i < words.length; i++) {
             System.out.println(words[i] + "=" + counters[i]);
         }
-
-
     }
 
     private static int processWord(String word) {
@@ -38,6 +36,5 @@ public class TaskA2 {
                 return i;
         }
         return -1;
-
     }
 }
