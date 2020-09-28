@@ -15,8 +15,6 @@ public class InOut {
         for (double element:arr){
             System.out.print(element + " ");
         }
-
-
     }
 
     static void printArray(double[ ] arr, String name, int columnCount){
@@ -26,8 +24,6 @@ public class InOut {
             if ((i + 1)%columnCount ==0 || i +1 ==arr.length){
                 System.out.println();
             }
-
-
         }
     }
 }

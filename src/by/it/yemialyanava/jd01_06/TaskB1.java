@@ -1,27 +1,26 @@
 package by.it.yemialyanava.jd01_06;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TaskB1 {
-    /*public static void main(String[] args) {
-        private static String[] words=new String[0];
-        private static String[] counters=new String[0];
-
-        public static void main(String[] args) {
-            StringBuilder text = new StringBuilder(Poem.text);
-            Pattern p = Pattern.compile("[ф-яА-ЯёЁ]+");
-            Matcher matcher = p.matcher(text);
+    public static void main(String[] args){
+            Pattern pattern = Pattern.compile("[а-яА-ЯёЁ]{2,}");
+            Matcher matcher = pattern.matcher(Poem.text);
             while (matcher.find()){
                 String word = matcher.group();
-                processOneWord(word);
+                if (checkWord(word)) {
+                    System.out.println(word);
+                }
             }
-
     }
-    private static final String votes = "ауеоыяюУЕЭОАЫЯИЮЁё";
+    private static final String votes = "ёуеэоаыяиюЁУЕЭОАЫЯИЮ";
 
-    private static boolean checkWord(String word) {
+    private static boolean checkWord (String word) {
         char first = word.charAt(0);
-        char last =
-
+        char last = word.charAt(word.length() - 1);
+        boolean firstOk = votes.indexOf(first)<0;
+        boolean lastOk = votes.indexOf(last)>=0;
+        return firstOk && lastOk;
     }
-    }*/
-
 }
+

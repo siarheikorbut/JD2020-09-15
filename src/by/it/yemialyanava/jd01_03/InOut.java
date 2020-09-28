@@ -1,10 +1,6 @@
 package by.it.yemialyanava.jd01_03;
-
-// ( а тут printf ) static void printArray(double[ ] arr, String name, int columnCount)
-
 /**
  * @author  T.Емельянова
- * @see
  */
 public class InOut{
     /**
@@ -40,8 +36,6 @@ public class InOut{
             if ((i + 1)%columnCount ==0 || i +1 ==arr.length){
                 System.out.println();
             }
-
-
         }
     }
 }

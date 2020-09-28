@@ -1,7 +1,6 @@
 package by.it.yemialyanava.jd01_04;
 
 public class Helper {
-
     static double findMin (double[] arr) {
         double min;
         min = arr[0];
@@ -40,7 +39,6 @@ public class Helper {
 
     static double[] mul(double[][] matrix, double[] vector) {
         double[] result = new double[matrix.length];
-
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < vector.length; j++) {
                 result[i] = result[i] + matrix[i][j] * vector[j];

@@ -14,7 +14,6 @@ public class TaskB {
         System.out.println("Введите количество людей");
         int n = sc.nextInt();
         sc.nextLine();
-
         String[] lName = new String[n];
         for (int i = 0; i < n; i++) {
             System.out.println("Введите фамилию");
@@ -51,7 +50,6 @@ public class TaskB {
         int summForYearForAllPerson = 0;
         for (int lNameIndex = 0; lNameIndex < lName.length; lNameIndex++) {
             int sumForYear = 0;
-
             for (int quarter = 0; quarter < 4; quarter++) {
                 sumForYear = sumForYear+salary[lNameIndex][quarter];
                 summForYearForAllPerson = summForYearForAllPerson + salary[lNameIndex][quarter];
@@ -62,14 +60,11 @@ public class TaskB {
             System.out.println();
         }
        System.out.println("--------------------------------------------------------------------------------------");
-
         System.out.printf("%-10s%-10d", "Итого", summForYearForAllPerson);
         System.out.println();
         double avr4Quarter4Person = (double) summForYearForAllPerson/lName.length/4.0;
         System.out.printf("%-10s%-10.4f", "Средняя", avr4Quarter4Person);
-
     }
-
 }
 
 

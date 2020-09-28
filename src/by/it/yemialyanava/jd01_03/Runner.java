@@ -20,6 +20,5 @@ public class Runner {
         System.out.println(Arrays.toString(nMul));
         double[][] newMatrix = Helper.mul(matrixLeft, matrixRight);
         System.out.println(Arrays.deepToString(newMatrix));
-
     }
 }

@@ -1,7 +1,5 @@
 package by.it.yemialyanava.jd01_01.jd01_01;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 class TaskC3 {

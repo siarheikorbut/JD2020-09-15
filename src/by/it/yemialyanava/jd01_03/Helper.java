@@ -1,7 +1,5 @@
 package by.it.yemialyanava.jd01_03;
 
-import java.util.Arrays;
-
 public class Helper {
 
     static double findMin (double[] arr) {
@@ -42,7 +40,6 @@ public class Helper {
 
     static double[] mul(double[][] matrix, double[] vector) {
         double[] result = new double[matrix.length];
-
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < vector.length; j++) {
                 result[i] = result[i] + matrix[i][j] * vector[j];
@@ -59,7 +56,6 @@ public class Helper {
                     mul[i][j] = mul[i][j] + matrixLeft[i][k] * matrixRight[k][j];
                 }
             }
-
         }
         return mul;
     }

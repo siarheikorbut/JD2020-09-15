@@ -1,6 +1,5 @@
 package by.it.yemialyanava.jd01_05;
 import java.util.Arrays;
-import java.util.Scanner;
 import static java.lang.Math.*;
 
 public class TaskC {
