@@ -28,11 +28,6 @@ public class TaskB {
                 averStr=averStr*100;
                 averStr1 =(int) Math.round(averStr);
                 averStr2 = averStr1/100;
-
-
-
-
-
             }
         }
         System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s%n", "фамилия", "1квартал", "2квартал", "3квартал", "4квартал","итого");
