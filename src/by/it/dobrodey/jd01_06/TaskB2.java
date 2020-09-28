@@ -23,7 +23,7 @@ public class TaskB2 {
         while (mt.find()) {
             String sentence = mt.group();
             sentence = sentence.replaceAll("\n"," ");
-            sentence = sentence.replaceAll("\s*[.,;:?!-]+\s*", " ");
+            sentence = sentence.replaceAll("\\s*[.,;:?!-]+\\s*", " ");
 
             sentence = sentence.trim();
             lengthSentence(sentence);
