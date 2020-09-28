@@ -7,14 +7,14 @@ public class TaskA1 {
     public static void main(String[] args) {
         StringBuilder text = new StringBuilder(Poem.text);
         System.out.println(Poem.text);
-        Pattern pattern = Pattern.compile("[а-яёА-ЯЁ]{4,}");
-        Matcher matcher = pattern.matcher(text);
-        while(matcher.find()){
-            String word = matcher.group();
-            System.out.println(word+" "+matcher.start());
-            int pos = matcher.start();
+        Pattern pt = Pattern.compile("[а-яёА-ЯЁ]{4,}");
+        Matcher mt = pt.matcher(text);
+        while(mt.find()){
+            String word = mt.group();
+            System.out.println(word+" "+mt.start());
+            int pos = mt.start();
             text.setCharAt(pos+3,'#');
-            if(matcher.end()-matcher.start()>6)
+            if(mt.end()-mt.start()>6)
             text.setCharAt(pos+6,'#');
 
 
