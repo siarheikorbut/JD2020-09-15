@@ -28,16 +28,18 @@ public class TaskC1 {
     }
     private static void newLine(String line, int maxLengh) {
         StringBuilder stroka = new StringBuilder(line);
+
         int poz = 0;
         while (stroka.length() < maxLengh) {
             int space = stroka.indexOf(" ", poz);
             if (space < 0) {
                 poz = 0;
                 continue;}
-            stroka.insert(space+1, " ");
-            poz = space+2;
+        stroka.insert(space+1, " ");
+        poz = space+2;
         }
         System.out.println(stroka);
+
     }
 
 
