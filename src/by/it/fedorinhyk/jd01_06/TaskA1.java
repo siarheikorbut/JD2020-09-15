@@ -13,7 +13,6 @@ public class TaskA1 {
             text.setCharAt(pos+3,'#');
             if (matcher.end()-matcher.start()>6)
             text.setCharAt(pos+6,'#');
-
         }
         System.out.println(text);
     }
