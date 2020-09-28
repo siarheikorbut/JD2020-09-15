@@ -6,7 +6,6 @@ public class TaskB {
         step1();
         step2();
     }
-
     static void step1() {
         double y = 0.0;
         double a = 0.0;
@@ -18,7 +17,6 @@ public class TaskB {
             System.out.println("При a=" + a + " y=" + y);
         }
     }
-
     static void step2() {
         double b = 0;
         double a=0;

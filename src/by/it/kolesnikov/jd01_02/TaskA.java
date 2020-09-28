@@ -42,14 +42,14 @@ public class TaskA {
 
     private static void step3(int[] arr) {
         int min=arr[0];
-        for (int i=0; i< arr.length; i++) {
-            if (min>arr[i]) {
-                min = arr[i];
+        for (int j : arr) {
+            if (min > j) {
+                min = j;
             }
         }
         for(int i=arr.length - 1; i>=0;i--){
             if (arr[i]==min)
-                System.out.println(i+" ");
+                System.out.print(i+" ");
         }
     }
 }
