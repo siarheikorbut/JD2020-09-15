@@ -9,14 +9,9 @@ public abstract class Var {
      *  Переопределите метод String toString() так, чтобы он возвращал строку вида 3.1415
      *    *
      */
-
-
-
-
-
-
-
-
+    public String toString() {
+        return "abstract Var";
+    }
 }
 
 
