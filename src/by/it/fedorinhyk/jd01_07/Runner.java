@@ -6,5 +6,7 @@ public class Runner {
 
         Var v1 = new Scalar(3.1415);
         Var v2=new Vector(vec);
+
+        double [][] matrix={{ 1.0, 2.0 }, { 3.0, 4.0 }};
     }
 }
