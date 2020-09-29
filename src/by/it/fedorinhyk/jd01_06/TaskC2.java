@@ -10,6 +10,8 @@ public class TaskC2 {
         start = System.nanoTime();
         text = fast(Poem.text);
         end =System.nanoTime();
+        System.out.println(text);
+        System.out.println((double)(end-start)/1000000000 + " sec");
     }
 
     public static String slow(String text){
