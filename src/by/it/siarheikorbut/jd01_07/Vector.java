@@ -8,7 +8,7 @@ package by.it.siarheikorbut.jd01_07;
 //Создание дочернего от класса Var класса Vector
 public class Vector extends Var {
 
-    //Обьявление приватной финализированного массива value.
+    //Обьявление приватного финализированного одномерного массива value.
     private final double[] value;
 
     //Создание конструктора принимающего в себя массив value.
@@ -30,6 +30,7 @@ public class Vector extends Var {
         }
     }
 
+    //Переопределение метода toString.
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{");

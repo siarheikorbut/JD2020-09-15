@@ -1,10 +1,8 @@
 package by.it.lapkovskiy.jd01_06;
 
-import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.lang.Thread.sleep;
 
 public class TaskC2 {
     String pText = Poem.text;

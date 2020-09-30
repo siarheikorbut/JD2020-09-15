@@ -40,8 +40,8 @@ public class Helper {
                 }
             }
         }
-        for (int i = 0; i < arr.length; i++) {
-           System.out.println(arr[i]);
+        for (double v : arr) {
+            System.out.println(v);
         }
     }
 
