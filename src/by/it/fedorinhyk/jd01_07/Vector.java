@@ -14,7 +14,6 @@ class Vector extends Var{
         this.value = Arrays.copyOf(tmp,tmp.length);
     }
     Vector (String strVector){
-
     }
 
     @Override
