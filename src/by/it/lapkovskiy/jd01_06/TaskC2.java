@@ -1,5 +1,6 @@
 package by.it.lapkovskiy.jd01_06;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,11 +11,6 @@ public class TaskC2 {
     String pText = Poem.text;
 
     public static void main(String[] args) {
-        /*long start = System.nanoTime();
-        slow("мывола выа ыва ваолрывло вылаорывло  аырвлоарыв");
-        long end = System.nanoTime();
-        long elapsedTime = end - start;
-        System.out.println(elapsedTime +" seconds");*/
         System.out.println(slow(Poem.text));
         System.out.println(fast(Poem.text));
     }
@@ -36,14 +32,14 @@ public class TaskC2 {
                 else cof =0;
             }
         }
-        Matcher matcher = pattern.matcher(text);
+       /* Matcher matcher = pattern.matcher(text);
         matcher = pattern.matcher(text);
         while (matcher.find()) {
             String word = matcher.group();
             st+=word+" ";
-        }
+        }*/
         try {
-            Thread.sleep(2000);
+            Thread.sleep(800);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -67,16 +63,16 @@ public class TaskC2 {
                 else cof =0;
             }
         }
-        Matcher matcher = pattern.matcher(text);
+       /* Matcher matcher = pattern.matcher(text);
         matcher = pattern.matcher(text);
         while (matcher.find()) {
             String word = matcher.group();
             st+=word+" ";
-        }
+        }*/
         return st;
     }
 
     static boolean random(int a){
-        return a%2==0;
+        return a%3==0;
     }
 }
