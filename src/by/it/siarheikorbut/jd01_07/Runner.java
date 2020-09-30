@@ -14,7 +14,7 @@ public class Runner {
         System.out.println(v4);
         Var v5 = new Vector(new Vector(new double[]{1.0, 2.0, 4.0}));
         System.out.println(v5);
-        //Var v6 = new Vector();
-        //System.out.println(v6);
+        Var v6 = new Vector("{1.0, 2.0, 4.0}");
+        System.out.println(v6);
     }
 }

@@ -22,9 +22,13 @@ public class Vector extends Var {
     }
 
     //Создание конструктора принимающего в себя строку и преобразующего её в массив чисел.
-    //Vector(String strVector) {
-        //this.value = ;
-    //}
+    Vector(String strVector) {
+        String[] s1 = strVector.replaceAll("\\{", "").replaceAll("}", "").split(",");
+        this.value = new double[s1.length];
+        for (int i = 0; i < s1.length; i++) {
+            value[i] = Double.parseDouble(s1[i].trim());
+        }
+    }
 
     @Override
     public String toString() {
