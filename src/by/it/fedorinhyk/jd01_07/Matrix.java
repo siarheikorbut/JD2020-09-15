@@ -5,8 +5,8 @@ import java.util.Arrays;
 class Matrix extends Var {
     private double [][] value;
 
-    Matrix (double [][] value){
-        this.value=value;
+    Matrix(double[][] value) {
+        this.value = value;
     }
 
     Matrix (Matrix matrix){
@@ -19,13 +19,13 @@ class Matrix extends Var {
 
     @Override
     public String toString() {
-        StringBuilder sb=new StringBuilder("{");
+        StringBuilder sb=new StringBuilder("{{");
         String delimiter="";
         for (double[] element : value){
             sb.append(delimiter).append(element);
-            delimiter=", ";
+            delimiter=", }";
         }
-        sb.append("}");
+        sb.append("}}");
         return sb.toString();
     }
 }
