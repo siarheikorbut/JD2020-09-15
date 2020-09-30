@@ -1,17 +1,17 @@
 package by.it.frolova.jd01_07;
 
-public class Scalar extends Var{
-    double value;
+public class Scalar extends Var {
+    private double value;
 
     public Scalar(double value) {
         this.value = value;
     }
 
-    public Scalar(Scalar scalar){
+    public Scalar(Scalar scalar) {
         this.value = scalar.value;
     }
 
-    public Scalar(String strScalar){
+    public Scalar(String strScalar) {
         this.value = Double.parseDouble(strScalar);
     }
 

@@ -31,10 +31,10 @@ public class Vector extends Var {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append('{');
-        String delimeter = "";
+        String delimiter = "";
         for (double element : value) {
-            sb.append(delimeter).append(element);
-            delimeter = ", ";
+            sb.append(delimiter).append(element);
+            delimiter = ", ";
         }
         sb.append('}');
         return sb.toString();
