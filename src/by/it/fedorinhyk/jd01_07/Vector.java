@@ -18,8 +18,8 @@ class Vector extends Var{
         double[] str = new double[value.length];
         for (int i = 0; i < value.length; i++) {
             str[i] = Double.parseDouble(strVector);
-            this.value[Integer.parseInt(strVector)] = Double.parseDouble(strVector);
         }
+        this.value[Integer.parseInt(strVector)] = Double.parseDouble(strVector);
     }
 
     @Override
