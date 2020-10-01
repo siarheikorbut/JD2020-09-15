@@ -3,7 +3,6 @@ package by.it.fedorinhyk.jd01_07;
 import java.util.Arrays;
 
 class Vector extends Var{
-    Object strVector;
     private double[] value;
 
     Vector (double[]value){
@@ -15,11 +14,12 @@ class Vector extends Var{
         this.value = Arrays.copyOf(tmp,tmp.length);
     }
     Vector (String strVector) {
-        double[] str = new double[value.length];
+        String[] str = strVector.replace('{',' ').replace('}',' ')
+                .trim().split(",");
+        value=new double[str.length];
         for (int i = 0; i < value.length; i++) {
-            str[i] = Double.parseDouble(strVector);
+            value[i] = Double.parseDouble(str[i]);
         }
-        this.value[Integer.parseInt(strVector)] = Double.parseDouble(strVector);
     }
 
     @Override
