@@ -30,7 +30,7 @@ public class Vector extends Var {
         }
     }
 
-    //Переопределение метода toString.
+    //Переопределение метода toString для вывода одномерного массива.
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("{");

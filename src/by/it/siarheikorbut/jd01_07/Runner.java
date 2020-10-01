@@ -26,8 +26,11 @@ public class Runner {
         System.out.println(v6);
 
         //Создание обьектов класса Matrix с соответствующими конструкторами.
-        Var v7 = new Matrix(new double[][]{{ 1.0, 2.0 }, { 3.0, 4.0 }});
+        Var v7 = new Matrix(new double[][]{{1.0, 2.0}, {3.0, 4.0}});
         System.out.println(v7);
-
+        Var v8 = new Matrix(new Matrix(new double[][]{{1.0, 2.0}, {3.0, 4.0}}));
+        System.out.println(v8);
+        Var v9 = new Matrix("{ { 1.0, 2.0 }, { 3.0, 4.0 } }");
+        System.out.println(v9);
     }
 }
