@@ -31,7 +31,7 @@ public class TaskA {
 
         for (double a = -5; a <= 12 ; a += stepA) {
             double f = exp(a * x) - 3.45 * a;
-            System.out.println("функция f: " + f + " при a: " + a);
+            System.out.println("функция f = " + f + " при a = " + a);
         }
     }
 }
