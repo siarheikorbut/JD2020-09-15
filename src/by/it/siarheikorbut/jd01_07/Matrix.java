@@ -22,13 +22,12 @@ public class Matrix extends Var {
     }
 
     //Создание конструктора принимающего в себя строку и преобразующего её в двумерный массив чисел.
-    Matrix(String strMatrix){
+    Matrix(String strMatrix) {
         String[] s1 = strMatrix.replaceAll("\\{", "").replaceAll("}", "").split(",");
         this.value = new double[s1.length][];
-        for (int i = 0; i < value.length; i++) {
-            for (int j = 0; j < value[i].length; j++) {
-                double[]row = value[j];
-                row[j] = Double.parseDouble(s1[j].trim());
+        for (int i = 0; i < s1.length; i++) {
+            for (int j = 0; j < s1[i].length(); j++) {
+                value[i][j] = Double.parseDouble(s1[i].trim());
             }
         }
     }
