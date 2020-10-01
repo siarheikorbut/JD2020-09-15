@@ -1,5 +1,7 @@
 package by.it.moiseyenko.jd01_01;
 
+import java.util.Scanner;
+
 /*
 Ускорение свободного падения на Земле и Марсе таково:
 Марс   3.86
@@ -30,6 +32,21 @@ package by.it.moiseyenko.jd01_01;
 
 */
 class TaskC3 {
+    public static double getWeight(int weight) {
+        double res = (double) weight / 9.81 * 3.86;
+        double scale = Math.pow(10, 2);
+        double result = Math.round(res * scale) / scale;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner number = new Scanner(System.in);
+        System.out.println("Ввод:");
+        int weightPeoleEarth = number.nextInt();
+        double weightPeoleMars = getWeight(weightPeoleEarth);
+        System.out.println("Вывод:\n"+weightPeoleMars);
+
+    }
 
     }
 

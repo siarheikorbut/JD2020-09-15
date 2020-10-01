@@ -4,12 +4,20 @@ import java.util.Arrays;
 
 class Vector extends Var {
     private double[] value;
-    Vector(double[] value){
-        this.value=value;
+    public Vector(double[] value){
+        this.value=Arrays.copyOf(value,value.length);
     }
 
-    Vector(Vector vector) {
+    public Vector(Vector vector) {
         this.value=vector.value;
+    }
+    public void Vector(String str){
+        String[] x=str.split(" ");
+        double[] vector;
+        vector = new double[x.length];
+        for (int i = 0; i < x.length; i++) {
+            vector[i]=Double.parseDouble(x[i]);
+        }
     }
 
 
