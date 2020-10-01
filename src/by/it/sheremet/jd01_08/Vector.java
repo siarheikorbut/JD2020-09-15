@@ -84,7 +84,8 @@ class Vector extends Var {
             for (int i = 0; i < mul.length; i++) {
                 mul[i] *= otherVector.value[i];
                 for (int j = 0; j < mul.length; j++) {
-                    double res =mul[j]++;
+                    double res =mul[j]+mul[j];
+
                 }
             }
             Vector result = new Vector(mul);
