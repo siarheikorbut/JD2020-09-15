@@ -1,6 +1,5 @@
-package by.it.sheremet.jd01_07;
+package by.it.sheremet.jd01_08;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 class Vector extends Var {
