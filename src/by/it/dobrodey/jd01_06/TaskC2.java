@@ -21,11 +21,11 @@ public class TaskC2 {
         double timeWorkMs = (double) timeWork / 1000;
         System.out.println(text);
         System.out.println("Time for fast metod = "+timeWorkMs + " msec");
-        startTime = System.nanoTime();
+        long startTime1 = System.nanoTime();
         text = fast(text);
-        endTime = System.nanoTime();
+        long endTime1 = System.nanoTime();
         System.out.println(text);
-        timeWorkMs = (double) (endTime - startTime) / 1000;
+        timeWorkMs = (double) (endTime1 - startTime1) / 1000;
         System.out.println("Time for fast metod = "+timeWorkMs + " msec");
     }
 
