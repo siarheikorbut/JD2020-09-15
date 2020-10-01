@@ -19,13 +19,8 @@ class Matrix extends Var {
 
     @Override
     public String toString() {
-        StringBuilder sb=new StringBuilder("{{");
-        String delimiter="";
-        for (double[] element : value){
-            sb.append(delimiter).append(element);
-            delimiter=", }";
-        }
-        sb.append("}}");
-        return sb.toString();
+        return "Matrix{" +
+                "value=" + Arrays.toString(value) +
+                '}';
     }
 }

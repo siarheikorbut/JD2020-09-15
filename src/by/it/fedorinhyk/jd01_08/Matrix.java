@@ -3,7 +3,7 @@ package by.it.fedorinhyk.jd01_08;
 import java.util.Arrays;
 
 class Matrix extends Var {
-    private double [][] value;
+    public double[][] value;
 
     Matrix(double[][] value) {
         this.value = value;

@@ -5,6 +5,14 @@ import java.util.Arrays;
 class Vector extends Var {
     private double[] value;
 
+    public double[] getValue() {
+        return value;
+    }
+
+    public void setValue(double[] value) {
+        this.value = value;
+    }
+
     Vector (double[]value){
         this.value=value;
     }
@@ -70,21 +78,28 @@ class Vector extends Var {
             Scalar otherScalar = (Scalar) other;
             double[] mul = Arrays.copyOf(value, value.length);
             for (int i = 0; i < mul.length; i++) {
-                mul[i] *= otherScalar.getValue();
+                mul[i] =mul[i]*((Scalar)other).getValue();
             }
             return new Vector(mul);
         } else if (other instanceof Vector) {
             Vector otherVector = (Vector) other;
             double[] mul = Arrays.copyOf(value, value.length);
             for (int i = 0; i < mul.length; i++) {
-                mul[i] *= otherVector.value[i];
+                mul[i] =mul[i]*((Vector)other).getValue()[i];
             }
             return new Vector(mul);
         } else if (other instanceof Matrix) {
             Matrix otherMatrix = (Matrix) other;
             double[] mul = Arrays.copyOf(value, value.length);
+            for (int i = 0; i < otherMatrix.value.length; i++){
+                for (int j = 0; j < value.length; j++) {
+                    mul[i]=mul[i]+otherMatrix.value[i][j]*getValue()[j];
+
+                }
+            }
+            return new Vector(mul);
         }
-        return other;
+        else return super.sub(other);
     }
 
     @Override
