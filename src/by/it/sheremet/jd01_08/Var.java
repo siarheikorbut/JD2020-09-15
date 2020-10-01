@@ -1,9 +1,29 @@
 package by.it.sheremet.jd01_08;
 
-abstract class Var {
+abstract class Var implements Operation {
+
 
     @Override
-    public String toString() {
-        return "abstract Var";
+    public Var add(Var other) {
+        System.out.println("Операция сложения "+this+"+"+other+"невозможна");
+        return null;
+    }
+
+    @Override
+    public Var sub(Var other) {
+        System.out.println("Операция сложения "+this+"+"+other+"невозможна");
+        return null;
+    }
+
+    @Override
+    public Var mul(Var other) {
+        System.out.println("Операция сложения "+this+"+"+other+"невозможна");
+        return null;
+    }
+
+    @Override
+    public Var div(Var other) {
+        System.out.println("Операция сложения "+this+"+"+other+"невозможна");
+        return null;
     }
 }

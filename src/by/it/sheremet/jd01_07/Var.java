@@ -1,6 +1,6 @@
 package by.it.sheremet.jd01_07;
 
-abstract class Var {
+abstract class Var  {
 
     @Override
     public String toString() {
