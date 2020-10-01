@@ -1,8 +1,8 @@
-package by.it.siarheikorbut.jd01_07;
+package by.it.siarheikorbut.jd01_08;
 
 /**
  * @author Siarhei Korbut
- * @see <a href="https://drive.google.com/file/d/1TJnuaS3yKKmJURuLfRdT_3q1cc7uf8oU/view?usp=sharing">Задание JD01_07 ( C )</a>
+ * @see <a href="https://drive.google.com/file/d/1jYVzPAxyV5XrFvrWvf-DEkSx9feVHEDz/view?usp=sharing">Задание JD01_08 ( C )</a>
  */
 
 //Создание дочернего от класса Var класса Vector
@@ -42,5 +42,25 @@ public class Matrix extends Var {
         }
         sb.append("}");
         return sb.toString();
+    }
+
+    @Override
+    public Var add(Var other) {
+        return null;
+    }
+
+    @Override
+    public Var sub(Var other) {
+        return null;
+    }
+
+    @Override
+    public Var mul(Var other) {
+        return null;
+    }
+
+    @Override
+    public Var div(Var other) {
+        return null;
     }
 }
