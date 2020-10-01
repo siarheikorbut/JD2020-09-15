@@ -4,7 +4,6 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 class Vector extends Var {
-    Object strVector;
     private double[] value;
 
     Vector(double[] value) {
