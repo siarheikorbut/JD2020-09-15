@@ -16,7 +16,6 @@ class Vector extends Var {
     }
 
     public Vector(String strValue){
-        //...........
     }
 
     @Override
