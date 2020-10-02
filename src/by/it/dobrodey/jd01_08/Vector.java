@@ -12,6 +12,9 @@ public class Vector extends Var {
      */
 
     private double[] value;
+    public double[] getValue() {
+        return value;
+    }
 
     protected Vector(double[] value) {
         this.value = Arrays.copyOf(value, value.length);
