@@ -78,28 +78,19 @@ class Vector extends Var {
             Scalar otherScalar = (Scalar) other;
             double[] mul = Arrays.copyOf(value, value.length);
             for (int i = 0; i < mul.length; i++) {
-                mul[i] =mul[i]*((Scalar)other).getValue();
+                mul[i] *=((Scalar)other).getValue();
             }
             return new Vector(mul);
         } else if (other instanceof Vector) {
             Vector otherVector = (Vector) other;
-            double[] mul = Arrays.copyOf(value, value.length);
-            for (int i = 0; i < mul.length; i++) {
-                mul[i] =mul[i]*((Vector)other).getValue()[i];
+            double[] mult = Arrays.copyOf(value, value.length);
+            double mul=0;
+            for (int i = 0; i < mult.length; i++) {
+                mul+= mult[i] * otherVector.value[i];
             }
-            return new Vector(mul);
-        } else if (other instanceof Matrix) {
-            Matrix otherMatrix = (Matrix) other;
-            double[] mul = Arrays.copyOf(value, value.length);
-            for (int i = 0; i < otherMatrix.value.length; i++){
-                for (int j = 0; j < value.length; j++) {
-                    mul[i]=mul[i]+otherMatrix.value[i][j]*getValue()[j];
-
-                }
-            }
-            return new Vector(mul);
+            return new Scalar (mul);
         }
-        else return super.sub(other);
+        else return super.mul(other);
     }
 
     @Override
