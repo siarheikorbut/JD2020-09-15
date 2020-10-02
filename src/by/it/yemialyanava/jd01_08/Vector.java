@@ -19,7 +19,7 @@ class Vector extends Var {
 
     Vector(String strVector) {
         String cuttedString = strVector.substring(1, strVector.length() - 1);
-        String[] arrayString = cuttedString.split(",");
+        String[] arrayString = cuttedString.split(", ?");
         double[] vectorFromLine = new double[arrayString.length];
         for (int i = 0; i < arrayString.length; i++) {
             vectorFromLine[i] = Double.parseDouble(arrayString[i]);
@@ -41,9 +41,8 @@ class Vector extends Var {
                 result[i] = result[i] + ((Vector) other).value[i];
             }
             return new Vector(result);
-        } else {
-            return super.add(other);
         }
+        return super.add(other);
     }
 
     @Override

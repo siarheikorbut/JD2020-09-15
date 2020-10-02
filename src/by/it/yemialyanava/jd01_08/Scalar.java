@@ -1,7 +1,5 @@
 package by.it.yemialyanava.jd01_08;
 
-import java.util.Scanner;
-
 class Scalar extends Var {
     private double value;
 
@@ -10,6 +8,7 @@ class Scalar extends Var {
     }
 
     Scalar(double value) {
+
         this.value = value;
     }
 
