@@ -23,7 +23,7 @@ abstract class Var implements Operation {
 
     @Override
     public Var div(Var other) {
-        System.out.println("Операция сложения "+this+"+"+other+"невозможна");
+        System.out.println("Операция деления "+this+"/"+other+"невозможна");
         return null;
     }
 }

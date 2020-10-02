@@ -50,22 +50,22 @@ class Vector extends Var {
     public Var sub(Var other) {
         if (other instanceof Scalar) {
             Scalar otherScalar = (Scalar) other;
-            double[] sum = Arrays.copyOf(value, value.length);
-            for (int i = 0; i < sum.length; i++) {
-                sum[i] -= otherScalar.getValue();
+            double[] sub = Arrays.copyOf(value, value.length);
+            for (int i = 0; i < sub.length; i++) {
+                sub[i] -= otherScalar.getValue();
             }
-            Vector result = new Vector(sum);
+            Vector result = new Vector(sub);
             return result;
         } else if (other instanceof Vector) {
             Vector otherVector = (Vector) other;
-            double[] sum = Arrays.copyOf(value, value.length);
-            for (int i = 0; i < sum.length; i++) {
-                sum[i] -= otherVector.value[i];
+            double[] sub = Arrays.copyOf(value, value.length);
+            for (int i = 0; i < sub.length; i++) {
+                sub[i] -= otherVector.value[i];
             }
-            Vector result = new Vector(sum);
+            Vector result = new Vector(sub);
             return result;
         } else
-            return super.add(other);
+            return super.sub(other);
     }
 
     @Override
@@ -78,20 +78,21 @@ class Vector extends Var {
             }
             Vector result = new Vector(mul);
             return result;
+
         } else if (other instanceof Vector) {
             Vector otherVector = (Vector) other;
             double[] mul = Arrays.copyOf(value, value.length);
             for (int i = 0; i < mul.length; i++) {
                 mul[i] *= otherVector.value[i];
-                for (int j = 0; j < mul.length; j++) {
-                    double res =mul[j]+mul[j];
-
-                }
             }
-            Vector result = new Vector(mul);
-            return result;
+            double s=0;
+            for (int i = 0; i < mul.length; i++) {
+                s+=mul[i];
+            }
+            Scalar result=new Scalar(s);
+            return result ;
         } else
-            return super.add(other);
+            return super.mul(other);
     }
 
     @Override
