@@ -3,7 +3,10 @@ package by.it.lapkovskiy.jd01_08;
 import java.util.Arrays;
 
 public class Matrix extends Var {
-    double[][] value;
+    public double[][] value;
+    public double[][] getValue(){
+        return  value;
+    }
     Matrix(double[][] value){
         this.value = value;
     }
@@ -44,21 +47,50 @@ public class Matrix extends Var {
 
     @Override
     public Var add(Var other) {
-        return null;
+        if(other instanceof Scalar){
+            return super.add(this);
+        }
+        else if(other instanceof Vector){
+            return super.add(this);
+        }
+        else if(other instanceof Matrix){
+            double[][] sum = Arrays.copyOf(value,value.length);
+            for (int i = 0; i < value.length; i++) {
+                for (int j = 0; j < value[i].length; j++) {
+                    sum[i][j]= sum[i][j] + ((Matrix) other).value[i][j];
+                }
+            }
+            return new Matrix(sum);
+        }
+        else return super.add(this);
     }
 
     @Override
     public Var sub(Var other) {
-        return null;
+        if(other instanceof Scalar){
+            return super.sub(this);
+        }
+        else if(other instanceof Vector){
+            return super.sub(this);
+        }
+        else if(other instanceof Matrix){
+            double[][] sum = Arrays.copyOf(value,value.length);
+            for (int i = 0; i < value.length; i++) {
+                for (int j = 0; j < value[i].length; j++) {
+                    sum[i][j]= sum[i][j] + ((Matrix) other).value[i][j];
+                }
+            }
+            return new Matrix(sum);
+        } else return super.sub(this);
     }
 
     @Override
     public Var mul(Var other) {
-        return null;
+        return super.mul(this);
     }
 
     @Override
     public Var div(Var other) {
-        return null;
+       return super.div(this);
     }
 }
