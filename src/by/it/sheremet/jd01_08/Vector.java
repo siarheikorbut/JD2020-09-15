@@ -99,11 +99,11 @@ class Vector extends Var {
     public Var div(Var other) {
         if (other instanceof Scalar) {
             Scalar otherScalar = (Scalar) other;
-            double[] mul = Arrays.copyOf(value, value.length);
-            for (int i = 0; i < mul.length; i++) {
-                mul[i] = mul[i] / otherScalar.getValue();
+            double[] div = Arrays.copyOf(value, value.length);
+            for (int i = 0; i < div.length; i++) {
+                div[i] = div[i] / otherScalar.getValue();
             }
-            Vector result = new Vector(mul);
+            Vector result = new Vector(div);
             return result;
 
         } else
