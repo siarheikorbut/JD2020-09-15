@@ -1,6 +1,8 @@
 package by.it.kolesnikov.jd01_08;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class Vector extends Var {
 
@@ -16,8 +18,19 @@ class Vector extends Var {
         this.value = Arrays.copyOf(tmp,tmp.length);
     }
 
-    public Vector(double strValue){
+    public Vector(String strVector){
+        Pattern pattern = Pattern.compile("[{}]");
+        Matcher matcher = pattern.matcher(strVector);
+        while (matcher.find()) {
+            strVector = matcher.replaceAll(" ");
+        }
+        double[] vec = new double[strVector.trim().split(",").length];
+        for (int i = 0; i < strVector.trim().split(",").length; i++) {
+            vec[i] = Double.parseDouble(strVector.trim().split(",")[i]);
+        }
+        this.value = vec;
     }
+
 
     @Override
     public Var add(Var other) {
@@ -26,6 +39,14 @@ class Vector extends Var {
             double [] result = new double[this.value.length];
             for (int i=0; i<this.value.length; i++){
                 result [i] = this.value[i]+otherVector.value[i];
+            }
+            return new Vector (result);
+        }
+         else if (other instanceof Scalar) {
+            Scalar otherVector = (Scalar)other;
+            double [] result = new double[this.value.length];
+            for (int i=0; i<this.value.length; i++){
+                result [i] = this.value[i]+ otherVector.getValue();
             }
             return new Vector (result);
         }
@@ -42,6 +63,14 @@ class Vector extends Var {
             }
             return new Vector (result);
         }
+        else if (other instanceof Scalar) {
+            Scalar otherVector = (Scalar) other;
+            double[] result = new double[this.value.length];
+            for (int i = 0; i < this.value.length; i++) {
+                result[i] = this.value[i] - otherVector.getValue();
+            }
+            return new Vector(result);
+        }
         else return other.sub(this);
     }
 
@@ -49,15 +78,36 @@ class Vector extends Var {
     public Var mul(Var other) {
         if (other instanceof Vector) {
             Vector otherVector = (Vector)other;
-            double result=0;
+            double sum=0;
             double [] arr = new double [this.value.length];
             for (int i=0; i<this.value.length; i++){
                 arr [i] = this.value[i]*otherVector.value[i];
-                result=0+arr[i];
+                sum=sum+arr[i];
+            }
+            return new Scalar(sum);
+        }
+        else if (other instanceof Scalar) {
+            Scalar otherVector = (Scalar)other;
+            double [] result= new double [this.value.length];
+            for (int i=0; i<this.value.length; i++){
+                result [i] = this.value[i]*otherVector.getValue();
             }
             return new Vector(result);
         }
         else return other.mul(this);
+    }
+
+    @Override
+    public Var div(Var other) {
+        if (other instanceof Scalar) {
+            Scalar otherVector = (Scalar)other;
+            double [] result= new double [this.value.length];
+            for (int i=0; i<this.value.length; i++){
+                result [i] = this.value[i]/otherVector.getValue();
+            }
+            return new Vector(result);
+        }
+        else return super.div(other);
     }
 
     @Override

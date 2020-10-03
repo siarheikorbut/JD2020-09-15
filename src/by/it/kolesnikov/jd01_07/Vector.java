@@ -1,6 +1,8 @@
 package by.it.kolesnikov.jd01_07;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class Vector extends Var {
 
@@ -16,7 +18,17 @@ class Vector extends Var {
         this.value = Arrays.copyOf(tmp,tmp.length);
     }
 
-    public Vector(String strValue){
+    public Vector(String strVector){
+        Pattern pattern = Pattern.compile("[{}]");
+        Matcher matcher = pattern.matcher(strVector);
+        while (matcher.find()) {
+            strVector = matcher.replaceAll(" ");
+        }
+        double[] vec = new double[strVector.trim().split(",").length];
+        for (int i = 0; i < strVector.trim().split(",").length; i++) {
+            vec[i] = Double.parseDouble(strVector.trim().split(",")[i]);
+        }
+        this.value = vec;
     }
 
     @Override
