@@ -2,8 +2,7 @@ package by.it.sheremet.jd01_08;
 
 import java.util.Arrays;
 
-class Matrix extends Var {
-    private double [][] value;
+class Matrix extends Var { private double [][] value;
 
         Matrix(double[ ][ ] value){
             this.value= Arrays.copyOf(value, value.length);
@@ -16,24 +15,21 @@ class Matrix extends Var {
     }
 
     Matrix(String strMatrix){
-        String str = strMatrix.substring(1, strMatrix.length() - 1);
-        String[] str1 =str.split(",");
-        String[][] str2 = new String[str1.length] [];
-        for (int i = 0; i < str1.length; i++) {
-            str2[i]=str1[i].split(",");
-
-            this.value=new double[str1.length][str2[0].length];
-            for (int j = 0; j < str2.length; j++) {
-                for (int k = 0; k <str2[0].length ; k++) {
-                    value[j][k]= Double.parseDouble(str2[j][k]);
-                }
-
-            }
-
-                   // value[i]= Double.parseDouble(str1[i]);
-         //   }
+            String line=strMatrix;
+            line=line.replaceAll("\\s+","");
+            line =line.replaceAll("\\{\\{", "");
+            line = line.replaceAll("\\}\\}","");
+            String [] str = line.split("\\},\\{");
+            String [][] newStr = new  String [str.length][];
+        for (int c = 0; c < str.length; c++) {
+             newStr[c]=str[c].split(",");
         }
-
+            this.value= new double[str.length][newStr[0].length];
+        for (int i = 0; i <newStr.length ; i++) {
+            for (int j = 0; j <newStr[0].length ; j++) {
+                value [i][j]=Double.parseDouble(newStr[i][j]);
+            }
+        }
     }
     @Override
     public String toString() {
@@ -53,5 +49,25 @@ class Matrix extends Var {
         }
         out.append("}");
         return out.toString();
+    }
+
+    @Override
+    public Var add(Var other) {
+        return super.add(other);
+    }
+
+    @Override
+    public Var sub(Var other) {
+        return super.sub(other);
+    }
+
+    @Override
+    public Var mul(Var other) {
+        return super.mul(other);
+    }
+
+    @Override
+    public Var div(Var other) {
+        return super.div(other);
     }
 }
