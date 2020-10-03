@@ -69,9 +69,11 @@ package by.it.dobrodey.jd01_09;
     public Var div(Var other) {
         if (other instanceof Scalar) {
             Scalar otherScalar = (Scalar) other;
-            double div = this.value / otherScalar.value;
-            Scalar result = new Scalar(div);
-            return result;
+            //if(!(otherScalar.value == 0)) {
+                double div = this.value / otherScalar.value;
+                Scalar result = new Scalar(div);
+                return result;          //  }
+
         } else return super.div(other);
     }
 }

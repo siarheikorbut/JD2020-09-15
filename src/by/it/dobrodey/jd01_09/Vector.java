@@ -16,16 +16,16 @@ public class Vector extends Var {
         return value;
     }
 
-    protected Vector(double[] value) {
+    public Vector(double[] value) {
         this.value = Arrays.copyOf(value, value.length);
     }
 
-    protected Vector(Vector vector) {
+    public Vector(Vector vector) {
         double[] newValue = vector.value;
         this.value = Arrays.copyOf(newValue, newValue.length);
     }
 
-    protected Vector(String strVector) {
+    public Vector(String strVector) {
         String line = strVector.replace("{", "");
         line = line.replace("}", "");
         line = line.replace(" ", "");

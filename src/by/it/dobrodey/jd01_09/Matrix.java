@@ -2,7 +2,7 @@ package by.it.dobrodey.jd01_09;
 
 import java.util.Arrays;
 
-class Matrix extends Var {
+public class Matrix extends Var {
     /**
      *  На уровень Cразработайте для класса Varнаследника Matrixс тремя конструкторами:
      *  1. Из массива{ { 1.0, 2.0 },  { 3.0, 4.0 } } сигнатура Matrix(double[ ][ ]  value)
@@ -12,11 +12,11 @@ class Matrix extends Var {
      */
     private double[][]value;
 
-    protected Matrix(double[ ][ ]  value){
+    public Matrix(double[ ][ ]  value){
         this.value = value;
     }
 
-    protected Matrix(Matrix matrix){
+    public Matrix(Matrix matrix){
         double[][] newMatrix = matrix.value;
         for (int i = 0; i < matrix.value.length; i++) {
             newMatrix[i] = Arrays.copyOf(matrix.value[i], matrix.value[i].length);
@@ -24,7 +24,7 @@ class Matrix extends Var {
         this.value = newMatrix;
 
     }
-    protected Matrix(String strMatrix){
+    public Matrix(String strMatrix){
         /**
          * { { 1.0, 2.0 },  { 3.0, 4.0 } }
          */
@@ -198,7 +198,7 @@ class Matrix extends Var {
             }
             Matrix result = new Matrix(matrixDiv);
             return result;
-        } else return super.add(other);
+        } else return super.div(other);
     }
 }
 
