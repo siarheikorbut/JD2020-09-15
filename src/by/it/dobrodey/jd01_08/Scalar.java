@@ -36,7 +36,7 @@ public class Scalar extends Var {
 
     @Override
     public Var add(Var other) {
-        if (other instanceof Scalar) {
+        if (other instanceof Scalar){
             Scalar otherScalar = (Scalar) other;
             double sum = this.value + otherScalar.value;
             Scalar result = new Scalar(sum);

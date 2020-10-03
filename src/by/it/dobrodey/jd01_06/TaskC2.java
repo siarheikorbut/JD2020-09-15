@@ -33,11 +33,14 @@ public class TaskC2 {
     private static String slow(String text) {
         String newText = "";
         text = text.replaceAll("[^а-яА-ЯёЁ]+", " ");
-        text = text.replaceAll("\\s+", " ");
+        text = text.trim();
+//        text = text.replaceAll("\\s+", " ");
 
         while (newText.length() <= 100000) newText = newText + text;
-//                Arrays.toString(text.split(" "));
 
+//                Arrays.toString(text.split(" "));
+//
+//
 //        newText = newText.replaceAll(", ", " ");
 //        newText = newText.replaceAll("\\[(\\s+)?", "");
 //        newText = newText.replaceAll("(\\s+)?]", "");
