@@ -23,6 +23,7 @@ class Vector extends Var {
             for (int i = 0; i < str1.length; i++) {
                 value[i] = Double.parseDouble(str1[i]);
             }
+
     }
 
     @Override
