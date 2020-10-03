@@ -2,7 +2,7 @@ package by.it.fedorinhyk.jd01_09;
 
 import java.util.Scanner;
 
-public class Runner {
+public class ConsoleRunner {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
         Parser  parser=new Parser();
@@ -11,6 +11,7 @@ public class Runner {
             String expression=sc.nextLine();
             if (expression.equals("end")) break;
             Var result=parser.calc(expression);
+            printer.print(result);
 
         }
     }
