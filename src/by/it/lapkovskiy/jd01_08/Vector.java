@@ -4,15 +4,14 @@ import java.util.Arrays;
 
 public class Vector extends Var {
     public double[] value;
-
-    public double[] getValue(){
+    double[] getValue(){
         return  value;
     }
     Vector(double[] value){
-        this.value = value;
+        this.value = Arrays.copyOf(value,value.length);
     }
     Vector(Vector vector){
-        this.value = vector.value;
+        this.value = Arrays.copyOf(vector.value,vector.value.length);
     }
     Vector(String strVector){
         strVector = strVector.replace("{","");

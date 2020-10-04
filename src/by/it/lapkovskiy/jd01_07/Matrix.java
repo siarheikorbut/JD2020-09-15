@@ -14,15 +14,16 @@ public class Matrix extends Var {
         strMatrix = strMatrix.replace("{{","");
         strMatrix = strMatrix.replace("}}","");
         String[] str = strMatrix.split("},\\{");
-        String[] arr1 = str[0].split(",");
-        String[] arr2 = str[1].split(",");
 
-        double[][] arrDouble = new double[arr1.length][arr2.length];
-        for (int i = 0; i < arr1.length; i++) {
-                arrDouble[0][i] = Double.parseDouble(arr1[i]);
+        String[][] st = new String[str.length][];
+        for (int i = 0; i < str.length; i++) {
+            st[i] = str[i].split(",");
         }
-        for (int i = 0; i < arr2.length; i++) {
-            arrDouble[1][i] = Double.parseDouble(arr2[i]);
+        double[][] arrDouble = new double[st.length][st[0].length];
+        for (int i = 0; i < st.length; i++) {
+            for (int j = 0; j < st[i].length; j++) {
+                arrDouble[i][j] = Double.parseDouble(st[i][j]);
+            }
         }
         this.value = Arrays.copyOf(arrDouble,arrDouble.length);
     }
@@ -36,7 +37,7 @@ public class Matrix extends Var {
             }
             st+=value[i][value[i].length-1]+"}";
             if(i ==value.length-1) break;
-            st=st.concat(",");
+            st=st.concat(" ,");
         }
         st+="}";
         return st;

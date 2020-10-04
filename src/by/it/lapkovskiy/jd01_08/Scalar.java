@@ -8,10 +8,10 @@ public class Scalar extends Var {
         return String.valueOf(value);
     }
     Scalar(double value){
-        this.value = value;
+        this.value = Double.valueOf(value);
     }
     Scalar(Scalar scalar){
-        value = scalar.value;
+        value = Double.valueOf(scalar.value);
     }
     Scalar(String strScalar){
         value = Double.parseDouble(strScalar);

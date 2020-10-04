@@ -4,31 +4,37 @@ import java.util.Arrays;
 
 public class Matrix extends Var {
     public double[][] value;
-    public double[][] getValue(){
-        return  value;
+     double[][] getValue(){
+        return value;
     }
     Matrix(double[][] value){
         this.value = value;
     }
     Matrix(Matrix matrix){
-        this.value = matrix.value;
+        this.value = matrix.getValue();
     }
     Matrix(String strMatrix){
         strMatrix = strMatrix.replace("{{","");
         strMatrix = strMatrix.replace("}}","");
-        String[] str = strMatrix.split("},\\{");
-        String[] arr1 = str[0].split(",");
-        String[] arr2 = str[1].split(",");
-
-        double[][] arrDouble = new double[arr1.length][arr2.length];
-        for (int i = 0; i < arr1.length; i++) {
-                arrDouble[0][i] = Double.parseDouble(arr1[i]);
+        String[] str = strMatrix.split("},");//
+        for (int i = 0; i < str.length; i++) {
+          str[i] = str[i].replace("{","");
+          str[i] = str[i].replace(" ","");
         }
-        for (int i = 0; i < arr2.length; i++) {
-            arrDouble[1][i] = Double.parseDouble(arr2[i]);
+
+        String[][] st = new String[str.length][];
+        for (int i = 0; i < str.length; i++) {
+           st[i] = str[i].split(",");
+        }
+        double[][] arrDouble = new double[st.length][st[0].length];
+        for (int i = 0; i < st.length; i++) {
+            for (int j = 0; j < st[i].length; j++) {
+                arrDouble[i][j] = Double.parseDouble(st[i][j]);
+            }
         }
         this.value = Arrays.copyOf(arrDouble,arrDouble.length);
     }
+
     @Override
     public String toString() {
         String st ="{";
@@ -39,7 +45,7 @@ public class Matrix extends Var {
             }
             st+=value[i][value[i].length-1]+"}";
             if(i ==value.length-1) break;
-            st=st.concat(",");
+            st=st.concat(", ");
         }
         st+="}";
         return st;
@@ -48,16 +54,22 @@ public class Matrix extends Var {
     @Override
     public Var add(Var other) {
         if(other instanceof Scalar){
-            return super.add(this);
+            double [][] sum = new double[this.value.length][this.getValue()[0].length];
+            for (int i = 0; i < sum.length; i++) {
+                for (int j = 0; j < sum[i].length; j++) {
+                    sum[i][j]= this.getValue()[i][j] + ((Scalar) other).value;
+                }
+            }
+            return new Matrix(sum);
         }
         else if(other instanceof Vector){
             return super.add(this);
         }
         else if(other instanceof Matrix){
-            double[][] sum = Arrays.copyOf(value,value.length);
-            for (int i = 0; i < value.length; i++) {
-                for (int j = 0; j < value[i].length; j++) {
-                    sum[i][j]= sum[i][j] + ((Matrix) other).value[i][j];
+            double [][] sum = new double[this.value.length][this.getValue()[0].length];
+            for (int i = 0; i < sum.length; i++) {
+                for (int j = 0; j < sum[i].length; j++) {
+                    sum[i][j]= getValue()[i][j] + ((Matrix) other).getValue()[i][j];
                 }
             }
             return new Matrix(sum);
@@ -68,25 +80,60 @@ public class Matrix extends Var {
     @Override
     public Var sub(Var other) {
         if(other instanceof Scalar){
-            return super.sub(this);
+            double [][] sub = new double[this.value.length][this.getValue()[0].length];
+            for (int i = 0; i < sub.length; i++) {
+                for (int j = 0; j < sub[i].length; j++) {
+                    sub[i][j]= this.getValue()[i][j] - ((Scalar) other).value;
+                }
+            }
+            return new Matrix(sub);
         }
         else if(other instanceof Vector){
             return super.sub(this);
         }
         else if(other instanceof Matrix){
-            double[][] sum = Arrays.copyOf(value,value.length);
+           // double[][] sub = Arrays.copyOf(this.getValue(),this.value.length);
+            double [][] sub = new double[this.value.length][this.getValue()[0].length];
             for (int i = 0; i < value.length; i++) {
                 for (int j = 0; j < value[i].length; j++) {
-                    sum[i][j]= sum[i][j] + ((Matrix) other).value[i][j];
+                    sub[i][j] =this.value[i][j] - ((Matrix) other).value[i][j];
                 }
             }
-            return new Matrix(sum);
-        } else return super.sub(this);
+            return new Matrix(sub);
+        } else return other.sub(this);
     }
 
     @Override
     public Var mul(Var other) {
-        return super.mul(this);
+        if(other instanceof Scalar){
+            double [][] sum = new double[this.value.length][this.getValue()[0].length];
+            for (int i = 0; i < sum.length; i++) {
+                for (int j = 0; j < sum[i].length; j++) {
+                    sum[i][j]= this.getValue()[i][j] * ((Scalar) other).value;
+                }
+            }
+            return new Matrix(sum);
+        }
+        else if(other instanceof Vector){
+            double[] resultVector = new double[value.length];
+            for (int i = 0; i < value.length; i++) {
+                for (int j = 0; j < ((Vector) other).value.length; j++) {
+                    resultVector[i] = resultVector[i] + value[i][j] * ((Vector) other).getValue()[j];
+                }
+            }
+            return new Vector(resultVector);
+        }
+        else if(other instanceof Matrix){
+            double[][] resultMatrix = new double[((Matrix) other).value[0].length][this.value.length];
+
+            for (int i = 0; i < this.value.length; ++i)
+                for (int j = 0; j < ((Matrix) other).value.length; ++j)
+                    for (int k = 0; k < this.value.length; ++k) {
+                        resultMatrix[i][j] = resultMatrix[i][j] + ((Matrix) other).getValue()[k][j] * this.value[i][k];
+                    }
+            return new Matrix(resultMatrix);
+        }
+        else return super.mul(this);
     }
 
     @Override
