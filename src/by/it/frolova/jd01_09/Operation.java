@@ -1,4 +1,4 @@
-package by.it.frolova.jd01_08;
+package by.it.frolova.jd01_09;
 
 public interface Operation {
 
