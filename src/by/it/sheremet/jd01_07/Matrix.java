@@ -16,19 +16,21 @@ class  Matrix extends Var {
     }
 
     Matrix(String strMatrix){
-            String line=strMatrix;
-            line=line.replaceAll("\\s+","");
-            line =line.replaceAll("\\{\\{", "");
-            line = line.replaceAll("\\}\\}","");
-            String [] str = line.split("\\},\\{");
-            String [][] newStr = new  String [str.length][];
-        for (int c = 0; c < str.length; c++) {
-             newStr[c]=str[c].split(",");
+            String line =strMatrix;
+            line=line.replaceAll(" ","");
+            line=line.replaceAll("\\{\\{","");
+            line=line.replaceAll("\\}\\}","");
+            String [] str =line.split("\\},\\{");
+            String [][] newStr=new String[str.length][];
+        for (int b = 0; b < str.length; b++) {
+            newStr[b]=str[b].split(",");
+
         }
-            this.value= new double[str.length][newStr[0].length];
-        for (int i = 0; i <newStr.length ; i++) {
-            for (int j = 0; j <newStr[0].length ; j++) {
-                value [i][j]=Double.parseDouble(newStr[i][j]);
+        this.value=new double[str.length][newStr[0].length];
+        for (int i = 0; i <str.length ; i++) {
+            for (int j = 0; j < newStr[0].length; j++) {
+              this.value[i][j]=Double.parseDouble(newStr[i][j]);
+
             }
         }
     }
