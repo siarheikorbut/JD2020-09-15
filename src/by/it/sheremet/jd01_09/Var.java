@@ -1,6 +1,22 @@
 package by.it.sheremet.jd01_09;
 
-abstract class Var implements Operation {
+abstract class Var implements Operation{
+
+    static Var createVar(String strVar) {
+        if (strVar.matches(Patterns.SCALAR)){
+            return new Scalar(strVar);
+        }
+        else if (strVar.matches(Patterns.VECTOR)){
+            return new Vector(strVar);
+        }
+        else if (strVar.matches(Patterns.MATRIX)){
+            return new Matrix(strVar);
+        }
+        else {
+            System.out.println("Unknow variable: "+strVar);
+            return null;
+        }
+    }
 
 
     @Override
