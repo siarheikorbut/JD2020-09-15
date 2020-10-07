@@ -9,10 +9,7 @@ public class PrintString {
         Method [] methods=structclass.getDeclaredMethods();
         for (Method method : methods){
             if ((method.getModifiers() & Modifier.STATIC) != Modifier.STATIC) {
-                StringBuilder print = new StringBuilder();
-                Class<?> returnType = method.getReturnType();
-                print.append(method.getName());
-                System.out.println(print);
+                System.out.println(method.getName());
             }
         }
     }

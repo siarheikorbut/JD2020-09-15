@@ -1,5 +1,6 @@
 package by.it.fedorinhyk.jd01_10;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
@@ -24,15 +25,21 @@ public class PrintMath {
                     out.append(delimiter).append(type.getSimpleName());
                     delimiter = ",";
                 }
-                out.append(')');
+                out.append(")");
                 System.out.println(out);
             }
         }
-        Class<Math> structclass = Math.class;
-        Method[] methodsfin = structclass.getDeclaredMethods();
-        for (Method method : methodsfin) {
-            if ((method.getModifiers() & Modifier.FINAL) == Modifier.FINAL)
-            System.out.println(methodsfin);
+        Field[] Fields = struct.getFields();
+        for (Field field : Fields) {
+            int modifiers = field.getModifiers();
+            if (Modifier.isPublic(modifiers)) {
+                StringBuilder out = new StringBuilder();
+                out.append("public ");
+                if (Modifier.isStatic(modifiers)) {
+                    out.append("static ").append(field.getType()).append(" ").append(field.getName());
+                }
+                System.out.println(out);
+            }
         }
     }
 }
