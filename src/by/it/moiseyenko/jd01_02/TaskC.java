@@ -12,8 +12,6 @@ public class TaskC {
     }
 
     private static int[][] step1(int n) {
-
-
     }
 
     private static void step2() {
