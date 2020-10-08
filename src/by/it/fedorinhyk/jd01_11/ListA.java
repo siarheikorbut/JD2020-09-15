@@ -1,29 +1,44 @@
 package by.it.fedorinhyk.jd01_11;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class ListA<T> implements List<T> {
+
+    private T[]elements= (T[]) new Object[0];
+    private int size=0;
+
     @Override
     public boolean add(T t) {
-        return false;
+        if(elements.length==size){
+            elements= Arrays.copyOf(elements,elements.length*3/2+1);
+        }
+        elements[size++]=t;
+        return true;
     }
 
     @Override
     public T remove(int index) {
-        return null;
+        T element=elements[index];
+        System.arraycopy(elements, index+1,elements,index,size-index-1);
+        elements[--size] = null;
+        return element;
     }
 
     @Override
     public T get(int index) {
-        return null;
+        return elements[index];
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        StringBuilder out=new StringBuilder("[");
+        String delimiter="";
+        for (int i = 0; i < size; i++) {
+            out.append(delimiter).append(elements[i]);
+            delimiter=", ";
+        }
+        out.append("]");
+        return out.toString();
     }
 
 
