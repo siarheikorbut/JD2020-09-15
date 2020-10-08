@@ -2,6 +2,11 @@ package by.it.siarheikorbut.jd01_11;
 
 import java.util.*;
 
+/**
+ * @author Siarhei Korbut
+ * @see <a href="https://drive.google.com/file/d/1Dtmq3a65M1AIORy_S6eC7CHwxX6PCQGB/view?usp=sharing">Задание JD01_11 ( A )</a>
+ */
+
 public class ListA<T> implements List<T> {
 
     @SuppressWarnings("unchecked")
