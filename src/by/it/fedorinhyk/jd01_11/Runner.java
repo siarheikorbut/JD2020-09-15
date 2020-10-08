@@ -24,5 +24,15 @@ public class Runner {
         System.out.println(List);
         List.remove(1);
         System.out.println(List);
+
+        List=new ListB<>();
+        List.add("one");
+        List.add("two");
+        List.add("three");
+        List.add("four");
+        List.add("five");
+        System.out.println(List);
+        List.remove(1);
+        System.out.println(List);
     }
 }
