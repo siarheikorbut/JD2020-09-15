@@ -13,6 +13,7 @@ public class ListA<T> implements List<T> {
     private T[] elements = (T[]) new Object[0];
     private int size = 0;
 
+    //Реализация метода add из интерфейса List<T>.
     @Override
     public boolean add(T t) {
         if (elements.length == size) {
@@ -22,6 +23,7 @@ public class ListA<T> implements List<T> {
         return true;
     }
 
+    //Реализация метода remove из интерфейса List<T>.
     @Override
     public T remove(int index) {
         T element = elements[index];
@@ -30,6 +32,13 @@ public class ListA<T> implements List<T> {
         return element;
     }
 
+    //Реализация метода get из интерфейса List<T>.
+    @Override
+    public T get(int index) {
+        return elements[index];
+    }
+
+    //Реализация метода toString как в ArrayList.
     @Override
     public String toString() {
         StringBuilder out = new StringBuilder("[");
@@ -41,12 +50,6 @@ public class ListA<T> implements List<T> {
         out.append("]");
         return out.toString();
     }
-
-    @Override
-    public T get(int index) {
-        return elements[index];
-    }
-
 
     @Override
     public int size() {
