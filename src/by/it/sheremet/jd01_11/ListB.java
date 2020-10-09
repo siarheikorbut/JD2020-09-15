@@ -1,11 +1,13 @@
 package by.it.sheremet.jd01_11;
 
-import java.sql.Array;
 import java.util.*;
+//Свой ListB. Напишите класс ListB<T>, который реализует toString() и 6 методов
+        //add(T e), remove(int index), get(int index), set(int index, T e), add(int index, T e), addAll(List<?> c)
+        //интерфейса List<T> (реализация остальных – фиктивная).
 
-public class ListA<T> implements List<T> {
+public class ListB<T> implements List<T>{
     private T[] elements = (T[]) new Object[0];
-    private int size=0;
+    private int size = 0;
 
     @Override
     public boolean add(T t) {
@@ -26,13 +28,29 @@ public class ListA<T> implements List<T> {
 
     @Override
     public T get(int index) {
-        return elements[index];
+       return elements[index];
     }
 
+    @Override
+    public T set(int index, T element) {
+        T oldElement = elements[index];
+        elements[index]=element;
+        return oldElement;
+    }
 
     @Override
-    public int size() {
-        return size;
+    public void add(int index, T element) {
+        if(size==elements.length)
+            elements= Arrays.copyOf(elements,elements.length*3/2+1);
+        System.arraycopy(elements, index, elements,index+1,size-index);
+        elements[index]=element;
+        size++;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends T> c) {
+
+        return false;
     }
 
     @Override
@@ -47,7 +65,17 @@ public class ListA<T> implements List<T> {
         return out.toString();
     }
 
-    //
+
+
+
+    /////////////////////////////////////
+
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
     @Override
     public boolean isEmpty() {
         return false;
@@ -85,11 +113,6 @@ public class ListA<T> implements List<T> {
     }
 
     @Override
-    public boolean addAll(Collection<? extends T> c) {
-        return false;
-    }
-
-    @Override
     public boolean addAll(int index, Collection<? extends T> c) {
         return false;
     }
@@ -108,19 +131,6 @@ public class ListA<T> implements List<T> {
     public void clear() {
 
     }
-
-
-
-    @Override
-    public T set(int index, T element) {
-        return null;
-    }
-
-    @Override
-    public void add(int index, T element) {
-
-    }
-
 
     @Override
     public int indexOf(Object o) {
