@@ -11,24 +11,24 @@ import java.util.Arrays;
 public class Vector extends Var {
 
     //Обьявление приватного финализированного одномерного массива value.
-    private final double[] value;
+    private final double[] VALUE;
 
     //Создание конструктора принимающего в себя массив value.
     Vector(double[] value) {
-        this.value = value;
+        this.VALUE = value;
     }
 
     //Создание конструктора принимающего в себя экземпляр класса Vector.
     Vector(Vector vector) {
-        this.value = vector.value;
+        this.VALUE = vector.VALUE;
     }
 
     //Создание конструктора принимающего в себя строку и преобразующего её в массив чисел.
     Vector(String strVector) {
         String[] s1 = strVector.replaceAll("\\{", "").replaceAll("}", "").split(",");
-        this.value = new double[s1.length];
+        this.VALUE = new double[s1.length];
         for (int i = 0; i < s1.length; i++) {
-            value[i] = Double.parseDouble(s1[i].trim());
+            VALUE[i] = Double.parseDouble(s1[i].trim());
         }
     }
 
@@ -37,7 +37,7 @@ public class Vector extends Var {
     public String toString() {
         StringBuilder sb = new StringBuilder("{");
         String delimiter = "";
-        for (double element : value) {
+        for (double element : VALUE) {
             sb.append(delimiter).append(element);
             delimiter = ", ";
         }
@@ -50,16 +50,16 @@ public class Vector extends Var {
     public Var add(Var other) {
         //Сложение скаляра и вектора.
         if (other instanceof Scalar) {
-            double[] res = Arrays.copyOf(value, value.length);
+            double[] res = Arrays.copyOf(VALUE, VALUE.length);
             for (int i = 0; i < res.length; i++) {
                 res[i] = res[i] + ((Scalar) other).getValue();
             }
             return new Vector(res);
             //Сложение вектора и вектора.
         } else if (other instanceof Vector) {
-            double[] res = Arrays.copyOf(value, value.length);
+            double[] res = Arrays.copyOf(VALUE, VALUE.length);
             for (int i = 0; i < res.length; i++) {
-                res[i] = res[i] + ((Vector) other).value[i];
+                res[i] = res[i] + ((Vector) other).VALUE[i];
             }
             return new Vector(res);
         } else
@@ -69,16 +69,54 @@ public class Vector extends Var {
 
     @Override
     public Var sub(Var other) {
-        return null;
+        if (other instanceof Scalar) {
+            double[] sub = Arrays.copyOf(VALUE, VALUE.length);
+            for (int i = 0; i < sub.length; i++) {
+                sub[i] -= ((Scalar) other).getValue();
+            }
+            return new Vector(sub);
+        } else if (other instanceof Vector) {
+            double[] arr = new double[((Vector) other).VALUE.length];
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = VALUE[i] - ((Vector) other).VALUE[i];
+            }
+            return new Vector(arr);
+        } else {
+            return super.sub(this);
+        }
     }
 
     @Override
     public Var mul(Var other) {
-        return null;
+
+        if (other instanceof Scalar) {
+            double[] sub = Arrays.copyOf(VALUE, VALUE.length);
+            for (int i = 0; i < sub.length; i++) {
+                sub[i] *= ((Scalar) other).getValue();
+            }
+            return new Vector(sub);
+        } else if (other instanceof Vector) {
+            double arr = 0;
+            for (int i = 0; i < VALUE.length; i++) {
+                arr += VALUE[i] * ((Vector) other).VALUE[i];
+            }
+            return new Scalar(arr);
+        } else {
+            return super.mul(this);
+        }
     }
 
     @Override
     public Var div(Var other) {
-        return null;
+        if (other instanceof Scalar) {
+            double[] sub = Arrays.copyOf(VALUE, VALUE.length);
+            for (int i = 0; i < sub.length; i++) {
+                sub[i] /= ((Scalar) other).getValue();
+            }
+            return new Vector(sub);
+
+        } else {
+            return super.div(this);
+        }
     }
 }

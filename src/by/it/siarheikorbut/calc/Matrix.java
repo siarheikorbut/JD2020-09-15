@@ -1,10 +1,10 @@
-package by.it.siarheikorbut.jd01_08;
+package by.it.siarheikorbut.calc;
 
 import java.util.Arrays;
 
 /**
  * @author Siarhei Korbut
- * @see <a href="https://drive.google.com/file/d/1jYVzPAxyV5XrFvrWvf-DEkSx9feVHEDz/view?usp=sharing">Задание JD01_08 ( C )</a>
+ * @see <a href="https://drive.google.com/file/d/1Dtmq3a65M1AIORy_S6eC7CHwxX6PCQGB/view?usp=sharing">Задание JD01_01 ( A, B, C )</a>
  */
 
 //Создание дочернего от класса Var класса Vector
@@ -63,21 +63,21 @@ public class Matrix extends Var {
 
     @Override
     public Var add(Var other) {
-        return null;
+        return super.add(other);
     }
 
     @Override
     public Var sub(Var other) {
-        return null;
+        return super.sub(other);
     }
 
     @Override
     public Var mul(Var other) {
-        return null;
+        return super.mul(other);
     }
 
     @Override
     public Var div(Var other) {
-        return null;
+        return super.div(other);
     }
 }

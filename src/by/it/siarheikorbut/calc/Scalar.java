@@ -1,46 +1,45 @@
-package by.it.siarheikorbut.jd01_08;
+package by.it.siarheikorbut.calc;
 
 /**
  * @author Siarhei Korbut
- * @see <a href="https://drive.google.com/file/d/1jYVzPAxyV5XrFvrWvf-DEkSx9feVHEDz/view?usp=sharing">Задание JD01_08 ( A )</a>
+ * @see <a href="https://drive.google.com/file/d/1Dtmq3a65M1AIORy_S6eC7CHwxX6PCQGB/view?usp=sharing">Задание JD01_01 ( A, B, C )</a>
  */
 
 //Создание дочернего от класса Var класса Scalar.
 public class Scalar extends Var {
 
     //Обьявление приватной финализированной переменной value.
-    private final double VALUE;
-
-    public double getVALUE() {
-        return VALUE;
+    private final double value;
+    public double getValue() {
+        return value;
     }
 
     //Создание конструктора принимающего в себя переменную value.
     Scalar(double value) {
-        this.VALUE = value;
+        this.value = value;
     }
 
     //Создание конструктора принимающего в себя экземпляр класса Scalar.
     Scalar(Scalar scalar) {
-        this.VALUE = scalar.VALUE;
+        this.value = scalar.value;
     }
 
     //Создание конструктора принимающего в себя строку и преобразующего её в число.
     Scalar(String strScalar) {
-        this.VALUE = Double.parseDouble(strScalar);
+        this.value = Double.parseDouble(strScalar);
     }
 
     //Переопределение метода toString.
     @Override
     public String toString() {
-        return Double.toString(VALUE);
+        return Double.toString(value);
     }
 
     //Метод сложения скаляров.
     @Override
     public Var add(Var other) {
         if (other instanceof Scalar) {
-            double sum = this.VALUE + ((Scalar) other).VALUE;
+            double sum = this.value + ((Scalar) other).value;
             return new Scalar(sum);
         } else return other.add(this);
     }
@@ -49,7 +48,7 @@ public class Scalar extends Var {
     @Override
     public Var sub(Var other) {
         if (other instanceof Scalar) {
-            double sub = this.VALUE - ((Scalar) other).VALUE;
+            double sub = this.value - ((Scalar) other).value;
             return new Scalar(sub);
         } else return new Scalar(-1).mul(other).add(this);
     }
@@ -58,7 +57,7 @@ public class Scalar extends Var {
     @Override
     public Var mul(Var other) {
         if (other instanceof Scalar) {
-            double mul = this.VALUE * ((Scalar) other).VALUE;
+            double mul = this.value * ((Scalar) other).value;
             return new Scalar(mul);
         } else return other.mul(this);
     }
@@ -67,7 +66,7 @@ public class Scalar extends Var {
     @Override
     public Var div(Var other) {
         if (other instanceof Scalar) {
-            double div = this.VALUE / ((Scalar) other).VALUE;
+            double div = this.value / ((Scalar) other).value;
             return new Scalar(div);
         } else return super.div(other);
     }
