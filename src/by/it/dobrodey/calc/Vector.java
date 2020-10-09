@@ -27,8 +27,9 @@ public class Vector extends Var {
 
     public Vector(String strVector) {
         String line = strVector.replace("{", "");
+        line = line.replaceAll("\\s+","");
         line = line.replace("}", "");
-        line = line.replace(" ", "");
+
         line = line.trim();                        //убираем пробелы в конце
         String[] strArray = line.split(",");    // переыодмс стороку в массив строк
         double[] array = new double[strArray.length];

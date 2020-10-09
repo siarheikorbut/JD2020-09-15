@@ -8,11 +8,13 @@ import java.util.Objects;
 abstract class Var implements Operation {
 
     private static Map<String,Var> varMap = new HashMap<>();
+    public static Map <String,Var> getVarMap(){return varMap;}
 
     public static Var save(String name, Var value){
         varMap.put(name, value);
         return value;
     }
+
 
     static Var createVar(String strVar) {
         if (strVar.matches(Patterns.SCALAR)){

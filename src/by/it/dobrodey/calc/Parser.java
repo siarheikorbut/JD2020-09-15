@@ -12,6 +12,7 @@ class Parser {
         String[] parts = expression.split(Patterns.OPERATION, 2);
         Var right = Var.createVar(parts[1]);
         if (expression.contains("=")){return Var.save(parts[0],right);}
+
         Var left = Var.createVar(parts[0]);
         if (parts.length == 1) return left;
 
