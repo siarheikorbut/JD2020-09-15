@@ -31,10 +31,10 @@ public class ListB<T>implements List<T> {
 
     @Override
     public T set(int index, T element) {
-        System.arraycopy(elements, index+1,elements,index,size-index-1);
-        elements = Arrays.copyOf(elements, elements.length+1);
+        System.arraycopy(elements,index,elements,index+1,size-index);
         elements[index]=element;
-        return element;
+        size++;
+        return element=(T) element;
     }
 
     @Override
