@@ -1,12 +1,12 @@
 package by.it.frolova.jd01_11;
 
-/*TaskA. Свой ListA. Напишите класс ListA<T>, который реализует 3 метода
-add(T e), remove(int index), get(int index) из интерфейса List<T> (реализация остальных –
-фиктивная) и плюс к этому реализует toString() как в ArrayList.*/
+/*TaskB. Свой ListB. Напишите класс ListB<T>, который реализует toString() и 6 методов
+add(T e), remove(int index), get(int index), set(int index, T e), add(int index, T e), addAll(List<?> c)
+интерфейса List<T> (реализация остальных – фиктивная).*/
 
 import java.util.*;
 
-public class ListA<T> implements List<T> {
+public class ListB<T> implements List<T> {
 
     private T[] elements = (T[]) new Object[0];
     private int size = 0;
@@ -21,16 +21,46 @@ public class ListA<T> implements List<T> {
     }
 
     @Override
-    public T remove(int index) {
-        T element = elements[index];
-        System.arraycopy(elements, index + 1, elements, index, size - index - 1);
-        elements[size--] = null;
-        return element;
+    public void add(int index, T element) {
+        if (elements.length == size) {
+            elements = Arrays.copyOf(elements, (size * 3) / 2 + 1);
+        }
+        System.arraycopy(elements, index, elements, index + 1, size - index);
+        elements[index] = element;
+        size++;
     }
+
+    @Override
+    public boolean addAll(Collection<? extends T> c) {
+        if ((elements.length - size) <= c.size()) {
+            elements = Arrays.copyOf(elements, c.size() + size);
+        }
+        for (T t : c) {
+            elements[size] = t;
+            size++;
+        }
+        return true;
+    }
+
 
     @Override
     public T get(int index) {
         return elements[index];
+    }
+
+    @Override
+    public T set(int index, T element) {
+        T oldValue = elements[index];
+        elements[index] = element;
+        return oldValue;
+    }
+
+    @Override
+    public T remove(int index) {
+        T del = elements[index];
+        System.arraycopy(elements, index + 1, elements, index, size - index - 1);
+        elements[--size] = null;
+        return del;
     }
 
     @Override
@@ -44,6 +74,7 @@ public class ListA<T> implements List<T> {
         sb.append("]");
         return sb.toString();
     }
+
 
     @Override
     public int size() {
@@ -67,7 +98,7 @@ public class ListA<T> implements List<T> {
 
     @Override
     public Object[] toArray() {
-        elements = Arrays.copyOf(elements,size);
+        elements = Arrays.copyOf(elements, size);
         return elements;
     }
 
@@ -83,11 +114,6 @@ public class ListA<T> implements List<T> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends T> c) {
         return false;
     }
 
@@ -112,18 +138,20 @@ public class ListA<T> implements List<T> {
     }
 
     @Override
-    public T set(int index, T element) {
-        return null;
-    }
-
-    @Override
-    public void add(int index, T element) {
-
-    }
-
-    @Override
     public int indexOf(Object o) {
-        return 0;
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (elements[i] == null)
+                    return i;
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(elements[i])) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     @Override
