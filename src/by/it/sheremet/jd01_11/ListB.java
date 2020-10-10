@@ -49,14 +49,15 @@ public class ListB<T> implements List<T>{
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        for (T t:c) {
-            if(size==elements.length)
-                elements= Arrays.copyOf(elements,elements.length*3/2+1);
-            size++;
-        }
-        return false;
-    }
+        for (T t : c) {
+            if (size == elements.length) {
+                elements = Arrays.copyOf(elements, elements.length * 3 / 2 + 1);
 
+            }
+            elements[size++]=t;
+        }
+        return true;
+    }
     @Override
     public String toString() {
         StringBuilder out= new StringBuilder("[");
