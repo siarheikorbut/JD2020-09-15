@@ -32,6 +32,10 @@ abstract class Var implements Operation {
         return value;
     }
 
+    public static Map <String,Var> getVarMap(){
+        return varMap;
+    }
+
     @Override
     public Var add(Var other) {
         System.out.println("Операция сложения "+this+"+"+other+" невозможна");

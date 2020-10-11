@@ -31,10 +31,9 @@ public class ListB<T>implements List<T> {
 
     @Override
     public T set(int index, T element) {
-        System.arraycopy(elements,index,elements,index+1,size-index);
-        elements[index]=element;
-        size++;
-        return element=(T) element;
+        T value = elements[index];
+        elements[index] = element;
+        return value;
     }
 
     @Override
@@ -48,10 +47,12 @@ public class ListB<T>implements List<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        if (elements.length==size) {
-            elements = Arrays.copyOf(elements, elements.length * 3 / 2 + 1);
+        for (T element : c) {
+            if(size == elements.length) {
+                elements = Arrays.copyOf(elements, elements.length * 3 / 2 + 1);
+            }
+            elements[size++] = element;
         }
-        elements[size++]= (T) c;
         return true;
     }
 
