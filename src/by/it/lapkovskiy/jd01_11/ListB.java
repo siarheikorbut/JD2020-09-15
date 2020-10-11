@@ -2,18 +2,19 @@ package by.it.lapkovskiy.jd01_11;
 
 import java.util.*;
 
-public class ListA<T> implements List<T> {
+public class ListB<T> implements List<T> {
 
     private T[] elements = (T[]) new Object[0];
 
     private int size = 0;
 
     @Override
-    public boolean add(T t) {
+    public boolean add(T e) {
+
         if (elements.length == size) {
             elements = Arrays.copyOf(elements, elements.length * 3 / 2 + 1);
         }
-        elements[size++] = t;
+        elements[size++] = e;
         return true;
     }
 
@@ -23,6 +24,35 @@ public class ListA<T> implements List<T> {
         System.arraycopy(elements, index + 1, elements, index, size - index - 1);
         elements[--size] = null;
         return element;
+    }
+
+    @Override
+    public T get(int index) {
+        return elements[index];
+    }
+
+    @Override
+    public T set(int index, T e) {
+        T eCopy = elements[index];
+        elements[index]=e;
+        return eCopy;
+    }
+
+    @Override
+    public void add(int index, T element) {
+        if (elements.length == size) {
+            elements = Arrays.copyOf(elements, elements.length * 3 / 2 + 1);
+        }
+        System.arraycopy(elements,index,elements,index+1,size-index);
+        elements[index] = element;
+        size++;
+    }
+    @Override
+    public boolean addAll(Collection<? extends T> c) {
+        for (T element: c) {
+            add(element);
+        }
+        return true;
     }
 
     @Override
@@ -36,26 +66,24 @@ public class ListA<T> implements List<T> {
         out.append("]");
         return out.toString();
     }
-
-    @Override
-    public T get(int index) {
-        return elements[index];
-    }
+    //----------------------------------------------------------------------
 
     @Override
     public int size() {
         return size;
     }
 
-    // --------------------------------------------------------------------------------------------
-
     @Override
-    public boolean isEmpty() {
-        return size == 0;
+    public boolean contains(Object o) {
+        return false;
     }
 
     @Override
-    public boolean contains(Object o) {
+    public boolean isEmpty() {
+        return false;
+    }
+    @Override
+    public boolean remove(Object o) {
         return false;
     }
 
@@ -75,17 +103,7 @@ public class ListA<T> implements List<T> {
     }
 
     @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends T> c) {
         return false;
     }
 
@@ -109,15 +127,6 @@ public class ListA<T> implements List<T> {
 
     }
 
-    @Override
-    public T set(int index, T element) {
-        return null;
-    }
-
-    @Override
-    public void add(int index, T element) {
-
-    }
 
     @Override
     public int indexOf(Object o) {
