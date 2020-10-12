@@ -15,11 +15,9 @@ import java.util.List;
 import java.util.Random;
 
 
-import static java.lang.Math.random;
-
 public class TaskA1 {
 
-    private static List<Integer> grades = new ArrayList<>(10);
+    private static final List<Integer> grades = new ArrayList<>(10);
 
     public static void main(String[] args) {
         Random rnd = new Random();

@@ -30,9 +30,9 @@ public class TaskC2 {
     }
 
     private static Set<Double> getCross(Set<?>... a) {
-        Set<Double> result = new HashSet<>(setDouble(a[0]));
+        Set<Double> result = new HashSet<>(getDouble(a[0]));
         for (int i = 1; i < a.length; i++) {
-            result.retainAll(setDouble(a[i]));
+            result.retainAll(getDouble(a[i]));
         }
         return result;
     }
@@ -40,18 +40,18 @@ public class TaskC2 {
     private static Set<Double> getUnion(Set<?>... a) {
         Set<Double> result = new HashSet<>();
         for (Set<?> integers : a) {
-          result.addAll(setDouble(integers));
+          result.addAll(getDouble(integers));
             }
          return result;
     }
 
-    private static Set<Double> setDouble(Set<?>a){
+    private static Set<Double> getDouble(Set<?>a){
         String in=a.toString();
         in = in.replaceAll("[^0-9.,]","");
         String[] arr = in.split(",");
         Set<Double> result = new HashSet<>();
-        for (int i = 0; i < arr.length; i++) {
-            result.add(Double.parseDouble(arr[i]));
+        for (String s : arr) {
+            result.add(Double.parseDouble(s));
         }
 
         return result;

@@ -19,11 +19,10 @@ public class TaskC1 {
         TreeMap<Integer, String> map = new TreeMap<>();
         Map<Integer, String> mapHash = new HashMap<>();
         Scanner sc = new Scanner(System.in);
-        Integer code = 0;
+        int code = 0;
         for (; ; ) {
             String s = sc.next();
-            String input = s.replaceAll("([^A-Za-z']+)", "");
-            s=s.trim();
+            String input = s.replaceAll("([^A-Za-z']+)", "").trim();
             if (input.equals("end")) {
                 break;
             }

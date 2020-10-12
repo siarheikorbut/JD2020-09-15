@@ -12,8 +12,8 @@ import java.util.LinkedList;
 public class TaskB3 {
 
     public static void main(String[] args) {
-        ArrayList<String> peopleList1 = new ArrayList<String>();
-        LinkedList<String> peopleList2 = new LinkedList<String>();
+        ArrayList<String> peopleList1 = new ArrayList<>();
+        LinkedList<String> peopleList2 = new LinkedList<>();
         for (int i = 0; i < 4096; i++) {
 
             peopleList1.add(String.valueOf(i));
@@ -47,7 +47,7 @@ public class TaskB3 {
         }
         String result = peoples.toString();
         result = result.replaceAll("\\[", "");
-        result = result.replaceAll("\\]", "");
+        result = result.replaceAll("]", "");
         return result;
     }
 
@@ -65,7 +65,7 @@ public class TaskB3 {
         }
         String result = peoples.toString();
         result = result.replaceAll("\\[", "");
-        result = result.replaceAll("\\]", "");
+        result = result.replaceAll("]", "");
         return result;
     }
 }

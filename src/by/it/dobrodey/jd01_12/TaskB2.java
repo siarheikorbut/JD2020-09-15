@@ -12,8 +12,8 @@ import java.util.*;
 
 public class TaskB2 {
     public static void main(String[] args) {
-        ArrayList<String> peopleList1 = new ArrayList<String>();
-        LinkedList<String> peopleList2 = new LinkedList<String>();
+        ArrayList<String> peopleList1 = new ArrayList<>();
+        LinkedList<String> peopleList2 = new LinkedList<>();
         String[] arr = {"Ann", "Olga", "Kate", "Sasha", "Maks", "Dasha", "Pavel"};
         for (String s : arr) {
             peopleList1.add(s);
@@ -40,7 +40,7 @@ public class TaskB2 {
         }
         String result = peoples.toString();
         result = result.replaceAll("\\[", "");
-        result = result.replaceAll("\\]", "");
+        result = result.replaceAll("]", "");
         return result;
     }
 
@@ -59,7 +59,7 @@ public class TaskB2 {
         }
         String result = peoples.toString();
         result = result.replaceAll("\\[", "");
-        result = result.replaceAll("\\]", "");
+        result = result.replaceAll("]", "");
         return result;
     }
 }
