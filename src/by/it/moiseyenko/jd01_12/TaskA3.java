@@ -9,7 +9,7 @@ public class TaskA3 {
         ArrayList<Integer> list= new ArrayList<>();
         int posZero=0;
         for(; ; ){
-            String input = sc.next();
+            String input = sc.nextLine();
             if(input.equals("end")){
                 break;
             }
