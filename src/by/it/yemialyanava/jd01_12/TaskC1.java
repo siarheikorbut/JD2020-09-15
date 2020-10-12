@@ -10,7 +10,6 @@ package by.it.yemialyanava.jd01_12;
          Затем нужно «сжать» список C, удаляя дублирующийся наименования объектов
         (оставляйте первое вхожение наименования, остальные – удаляются).
          Выведите полученный ассоциативный массив в консоль методом toString()*/
-import java.beans.IntrospectionException;
 import java.util.*;
 
 public class TaskC1 {
@@ -32,9 +31,6 @@ public class TaskC1 {
             }
         }
         System.out.println(treeMap.toString());
-        /*for(Map.Entry e : treeMap.entrySet()){
-            System.out.println(e.getKey()+" "+ e.getValue());
-        }*/
 
         Map<Integer, String> map = new HashMap<>();
         for (Map.Entry<Integer,String> e : treeMap.entrySet()) {
@@ -44,5 +40,4 @@ public class TaskC1 {
         }
         System.out.println(map.toString());
     }
-
 }
