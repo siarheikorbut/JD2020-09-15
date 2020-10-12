@@ -71,13 +71,7 @@ public class SetC<T> implements Set<T> {
     public boolean addAll(Collection<? extends T> c) {
 
         for (T element: c) {
-            try{
             add(element);
-            }
-            catch (Exception e)
-            {
-                System.out.println("add()"+e.toString());
-            }
         }
         return true;
 

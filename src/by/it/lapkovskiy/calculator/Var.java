@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-abstract class Var implements Operation {
+public abstract class Var implements Operation {
+
 
     private static Map<String, Var> varMap = new HashMap<>();
 
