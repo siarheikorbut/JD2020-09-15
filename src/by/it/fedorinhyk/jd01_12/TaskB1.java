@@ -1,30 +1,23 @@
 package by.it.fedorinhyk.jd01_12;
 
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class TaskB1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<String> list = new ArrayList<>(200);
-        for (;;) {
-            String word=sc.next();
-            if (word.equals("end")){
+        HashMap<String, Integer> HashMap = new HashMap<>();
+        for (; ; ) {
+            String word = sc.next().replaceAll("[\\)\\(\\;\\.:,!?-]+", "");
+            if (word.equals("end")) {
                 break;
             }
+            if (HashMap.containsKey(word)) HashMap.put(word, HashMap.get(word) + 1);
+            else {
+                HashMap.put(word, 1);
+            }
         }
-        Map<Integer,String> cross=getcross(list);
-        System.out.println(cross);
-    }
-
-    private static Map<Integer, String> getcross(ArrayList<String> list){
-        StringBuilder words = new StringBuilder(String.valueOf(list));
-        Pattern pattern=Pattern.compile("[a-zA-Z]+");
-        Matcher matcher=pattern.matcher((CharSequence) list);
-        while (matcher.find()){
-            String word=matcher.group();
+        for (String element : HashMap.keySet()) {
+            System.out.println(element+"="+HashMap.get(element));
         }
-        return (Map<Integer, String>) list;
     }
 }
