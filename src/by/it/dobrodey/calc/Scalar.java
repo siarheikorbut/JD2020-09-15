@@ -1,6 +1,6 @@
-package by.it.dobrodey.jd01_09;
+package by.it.dobrodey.calc;
 
- class Scalar extends Var {
+class Scalar extends Var {
     /**
      * На уровень A разработайте для класса Var наследника Scalar с тремя конструкторами:
      * 1. Из вещественного числа 3.1415 сигнатура конструктора Scalar(double value)

@@ -1,5 +1,6 @@
-package by.it.akhmelev.calculator;
+package by.it.dobrodey.calc;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class ConsoleRunner {
@@ -10,6 +11,14 @@ public class ConsoleRunner {
         for (; ; ) {
             String expression = sc.nextLine();
             if (expression.equals("end")) break;
+            if (expression.equals("printvar")) {
+                printer.printvar(Var.getVarMap());
+                continue;
+            }
+            if (expression.equals("sortvar")) {
+                printer.printsort(Var.getVarMap());
+                continue;
+            }
             Var result = parser.calc(expression);
             printer.print(result);
         }

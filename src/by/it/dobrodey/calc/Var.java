@@ -1,8 +1,20 @@
-package by.it.dobrodey.jd01_09;
+package by.it.dobrodey.calc;
 
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 abstract class Var implements Operation {
+
+    private static Map<String,Var> varMap = new HashMap<>();
+    public static Map <String,Var> getVarMap(){return varMap;}
+
+    public static Var save(String name, Var value){
+        varMap.put(name, value);
+        return value;
+    }
+
 
     static Var createVar(String strVar) {
         if (strVar.matches(Patterns.SCALAR)){
@@ -15,8 +27,11 @@ abstract class Var implements Operation {
             return new Matrix(strVar);
         }
         else {
-            System.out.println("Unknow variable: "+strVar);
-            return null;
+            Var var = varMap.get(strVar);
+            if (Objects.isNull(var)) {
+                System.out.println("Unknow variable: " + strVar);
+            }
+            return var;
         }
     }
 
