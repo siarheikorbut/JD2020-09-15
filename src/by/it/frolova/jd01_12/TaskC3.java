@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 public class TaskC3 {
     public static void main(String[] args) {
         List<String> text = new ArrayList<>();
-
         Scanner sc = new Scanner(System.in);
         String symbols = sc.nextLine();
         Pattern pattern = Pattern.compile("[(){}\\[\\]]");
@@ -21,7 +20,6 @@ public class TaskC3 {
             String symbol = matcher.group();
             text.add(symbol);
         }
-        //System.out.println(text);
         System.out.println(brackets(text));
     }
 
@@ -45,7 +43,6 @@ public class TaskC3 {
                 }
             }
         }
-        System.out.println(stack);
         return stack.empty();
     }
 
