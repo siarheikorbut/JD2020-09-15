@@ -1,4 +1,4 @@
-package by.it.fedorinhyk.jd01_09;
+package by.it.fedorinhyk.calc;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,10 +8,14 @@ public class Parser {
         expression.replaceAll("\\s+","");
 
         String[] parts = expression.split(Patterns.OPERATION, 2);
+        if (parts.length==1) return Var.createVar(parts[0]);
+
+        Var right= Var.createVar(parts[1]);
+        if (expression.contains("=")){
+            return Var.save(parts[0],right);
+        }
 
         Var left= Var.createVar(parts[0]);
-        if (parts.length==1) return left;
-        Var right= Var.createVar(parts[1]);
         if (right==null || left==null) return null;
 
         Pattern patternOperation = Pattern.compile(Patterns.OPERATION);
