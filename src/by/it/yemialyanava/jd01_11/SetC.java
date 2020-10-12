@@ -25,7 +25,22 @@ public class SetC<T> implements Set<T> {
     @Override
     public boolean addAll(Collection<? extends T> c) {
         T[] arr = (T[])c.toArray();
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (elements[i].equals(arr[j])) {
+                    arr[j] = null;
+                }
+            }
+
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j] != null) {
+                    size = size + arr.length;
+                    elements[size] = arr[j];
+                }
+            }
+        }
+
+        /*for(int i = 0; i < arr.length; i++) {
             T currentNewElement = arr[i];
 
             boolean esliTekushiuNetVSuchestuyushem = true;
@@ -34,14 +49,15 @@ public class SetC<T> implements Set<T> {
                     esliTekushiuNetVSuchestuyushem = false;
                 }
             }
-
-
             if (esliTekushiuNetVSuchestuyushem) {
+                size = size + c.size();
                 elements[size++] = currentNewElement;
             }
-        }
+        }*/
         return true;
     }
+
+
 
     private boolean esliTekushiuNetVSuchestuyushem(T[] elements, T currentNewElement) {
         for (T element : elements ) {

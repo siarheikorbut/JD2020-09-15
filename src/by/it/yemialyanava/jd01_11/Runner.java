@@ -27,7 +27,7 @@ public class Runner {
         list2.remove(1);
         System.out.println(list2);*/
 
-        /*ListB list3 = new ListB<>();
+        ListB list3 = new ListB<>();
         list3.add("one");
         list3.add("two");
         list3.add("tree");
@@ -35,22 +35,24 @@ public class Runner {
         list3.add("five");
         System.out.println(list3);
         list3.add(2, "Start");
-        System.out.println(list3);
+        /*System.out.println(list3);
         list3.addAll(list3);
         list3.remove(1);
         System.out.println(list3);
         System.out.println(list3.get(0));
-        System.out.println(list3.set(3, "Pram"));*/
+        System.out.println(list3.set(3, "Pram"));
         HashSet<String> hs= new HashSet<>();
         hs.add("Start");
         hs.add("Ancl");
         hs.add("Ant");
-        System.out.println(hs);
+        System.out.println(hs);*/
 
         SetC<String> hs2= new SetC<>();
         hs2.add("Start");
         hs2.add("Ancl");
         hs2.add("Ant");
+        System.out.println(hs2);
+        hs2.addAll(list3);
         System.out.println(hs2);
 
 
