@@ -30,7 +30,7 @@ public class TaskB2 {
                 last=last+1;
                 sub=sub+1;
             }
-        } while (peoples.size() != 1);
+        } while (peoples.size() > 1);
         return peoples.get(0);
     }
     public static String process(LinkedList<String> peoples){
@@ -46,7 +46,7 @@ public class TaskB2 {
                 last=last+1;
                 sub=sub+1;
             }
-        } while (peoples.size() != 1);
+        } while (peoples.size() > 1);
         return peoples.get(0);
     }
 }

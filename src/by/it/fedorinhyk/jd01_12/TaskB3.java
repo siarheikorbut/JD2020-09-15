@@ -16,10 +16,16 @@ public class TaskB3 {
         }
         System.out.println(process(array));
         System.out.println(process(linked));
+
+        double timearray=System.nanoTime();
+        double timelinked=System.nanoTime();
+        System.out.println("ArrayList= "+process(array)+", "+timearray);
+        System.out.println("LinkedList= "+process(linked)+", "+timelinked);
+
     }
     public static String process(ArrayList<String> peoples){
-        int last =1;
-        int sub =0;
+        int last=1;
+        int sub=0;
         do {
             if (sub == peoples.size()) sub = 0;
             if (last == 2){
@@ -30,7 +36,7 @@ public class TaskB3 {
                 last=last+1;
                 sub=sub+1;
             }
-        } while (peoples.size() != 1);
+        } while (peoples.size() > 1);
         return peoples.get(0);
     }
     public static String process(LinkedList<String> peoples){
@@ -46,7 +52,7 @@ public class TaskB3 {
                 last=last+1;
                 sub=sub+1;
             }
-        } while (peoples.size() != 1);
+        } while (peoples.size() > 1);
         return peoples.get(0);
     }
 }
