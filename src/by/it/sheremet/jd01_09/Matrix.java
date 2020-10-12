@@ -92,7 +92,8 @@ class Matrix extends Var {
 
 
     @Override
-    public Var sub(Var other) {
+    public
+    Var sub(Var other) {
         if (other instanceof Scalar) {
             Scalar otherScalar = (Scalar) other;
             double[][] sub = new double[this.value.length][this.value[0].length];
