@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-public class SetC<T> implements Set<T> {
+/*public class SetC<T> implements Set<T> {
    private T[] elements = (T[]) new Object[0];
    private int size = 0;
 
@@ -25,7 +25,17 @@ public class SetC<T> implements Set<T> {
     @Override
     public boolean addAll(Collection<? extends T> c) {
         T[] arr = (T[])c.toArray();
-        for (int i = 0; i < size; i++) {
+        int i = 0 ;
+        for ( element : arr){
+            if(!elements.equals(arr[i])){
+                elements = elements;
+            }
+        }
+
+
+
+
+        /*for (int i = 0; i < size; i++) {
             for (int j = 0; j < arr.length; j++) {
                 if (elements[i].equals(arr[j])) {
                     arr[j] = null;
@@ -54,7 +64,7 @@ public class SetC<T> implements Set<T> {
                 elements[size++] = currentNewElement;
             }
         }*/
-        return true;
+       /** return true;
     }
 
 
@@ -174,4 +184,4 @@ public class SetC<T> implements Set<T> {
     public void clear() {
 
     }
-}
+}*/

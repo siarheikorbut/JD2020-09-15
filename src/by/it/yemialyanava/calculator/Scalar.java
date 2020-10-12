@@ -1,4 +1,4 @@
-package by.it.yemialyanava.jd01_09;
+package by.it.yemialyanava.calculator;
 
 public class Scalar extends Var {
     private double value;
