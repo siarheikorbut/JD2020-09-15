@@ -10,7 +10,7 @@ class TaskA {
     private static final String FILE_DATA = "dataTaskA.bin";
     private static final String SRC = "src";
     private static final String USER_DIR = "user.dir";
-    private static final String RESULT_TASK_A_TXT = "resultTaskA.txt";
+    private static final String RESULT_TASK_A = "resultTaskA.txt";
 
     @SuppressWarnings("SameParameterValue")
     private static String getPath(Class<?> aClass) {
@@ -30,8 +30,8 @@ class TaskA {
         List<Integer> list = new ArrayList<>();
         readInt(filename, list);
         printToConsole(list);
-        String filenameTxt = getPath(TaskA.class) + RESULT_TASK_A_TXT;
-        ptintToFile(list, filenameTxt);
+        String filenameTxt = getPath(TaskA.class) + RESULT_TASK_A;
+        printToFile(list, filenameTxt);
     }
 
     private static void writeRandomInt(String filename) {
@@ -76,9 +76,8 @@ class TaskA {
         System.out.println("\navg=" + sum / list.size());
     }
 
-    private static void ptintToFile(List<Integer> list, String filenameTxt) {
+    private static void printToFile(List<Integer> list, String filenameTxt) {
         PrintWriter printWriter = null;
-
         try {
             printWriter = new PrintWriter(filenameTxt);
             double sum2 = 0;
