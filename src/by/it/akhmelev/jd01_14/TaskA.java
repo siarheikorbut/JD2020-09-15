@@ -7,12 +7,13 @@ import java.util.Objects;
 
 class TaskA {
 
-    static final String FILE_DATA = "dataTaskA.bin";
-    static final String SRC = "src";
-    static final String USER_DIR = "user.dir";
-    static final String RESULT_TASK_A_TXT = "resultTaskA.txt";
+    private static final String FILE_DATA = "dataTaskA.bin";
+    private static final String SRC = "src";
+    private static final String USER_DIR = "user.dir";
+    private static final String RESULT_TASK_A_TXT = "resultTaskA.txt";
 
-    static String getPath(Class<?> aClass) {
+    @SuppressWarnings("SameParameterValue")
+    private static String getPath(Class<?> aClass) {
         String packageName = aClass
                 .getPackage()
                 .getName()
@@ -33,6 +34,48 @@ class TaskA {
         ptintToFile(list, filenameTxt);
     }
 
+    private static void writeRandomInt(String filename) {
+        try (
+                DataOutputStream dataOutputStream = new DataOutputStream(
+                        new BufferedOutputStream(
+                                new FileOutputStream(filename)
+                        )
+                )
+        ) {
+            for (int i = 0; i < 20; i++) {
+                int n = -12345 / 2 + (int) (Math.random() * 12345);
+                dataOutputStream.writeInt(n);
+            }
+            dataOutputStream.writeInt(90 + (89 << 8) + (88 << 16) + 87 * 256 * 256 * 256);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void readInt(String filename, List<Integer> list) {
+        try (
+                DataInputStream dataInputStream = new DataInputStream(
+                        new BufferedInputStream(new FileInputStream(filename)
+                        )
+                )
+        ) {
+            while (dataInputStream.available() > 0) {
+                list.add(dataInputStream.readInt());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void printToConsole(List<Integer> list) {
+        double sum = 0;
+        for (Integer integer : list) {
+            System.out.print(integer + " ");
+            sum += integer;
+        }
+        System.out.println("\navg=" + sum / list.size());
+    }
+
     private static void ptintToFile(List<Integer> list, String filenameTxt) {
         PrintWriter printWriter = null;
 
@@ -51,46 +94,6 @@ class TaskA {
             if (Objects.nonNull(printWriter)) {
                 printWriter.close();
             }
-        }
-    }
-
-    private static void printToConsole(List<Integer> list) {
-        double sum = 0;
-        for (Integer integer : list) {
-            System.out.print(integer + " ");
-            sum += integer;
-        }
-        System.out.println("\navg=" + sum / list.size());
-    }
-
-    private static void readInt(String filename, List<Integer> list) {
-        try (DataInputStream dataInputStream = new DataInputStream(
-                new BufferedInputStream(new FileInputStream(filename))
-        )
-        ) {
-            while (dataInputStream.available() > 0) {
-                list.add(dataInputStream.readInt());
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static void writeRandomInt(String filename) {
-        try (
-                DataOutputStream dataOutputStream = new DataOutputStream(
-                        new BufferedOutputStream(
-                                new FileOutputStream(filename)
-                        )
-                )
-        ) {
-            for (int i = 0; i < 20; i++) {
-                int n = -12345 / 2 + (int) (Math.random() * 12345);
-                dataOutputStream.writeInt(n);
-            }
-            dataOutputStream.writeInt(90 + (89 << 8) + (88 << 16) + 87 * 256 * 256 * 256);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }
