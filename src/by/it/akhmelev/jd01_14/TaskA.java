@@ -22,6 +22,7 @@ class TaskA {
         return root + File.separator + SRC + File.separator + packageName;
     }
 
+
     public static void main(String[] args) {
         String filename = getPath(TaskA.class) + FILE_DATA;
         writeRandomInt(filename);
