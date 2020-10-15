@@ -10,6 +10,8 @@ public class TaskA {
 
     private static String gepPath() {
         String packageName = TaskA.class
+
+
                 .getPackage()
                 .getName()
                 .replace(".", File.separator)
