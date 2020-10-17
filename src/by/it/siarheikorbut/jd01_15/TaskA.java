@@ -1,6 +1,5 @@
 package by.it.siarheikorbut.jd01_15;
 
-import javax.imageio.IIOException;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +20,7 @@ public class TaskA {
             }
         }
 
-        String filename = getPath(TaskA.class) + MATRIX_TXT;
+        String filename = getPath() + MATRIX_TXT;
         try (PrintWriter writer = new PrintWriter(filename)) {
             for (int[] row : array) {
                 for (int value : row) {
@@ -32,14 +31,13 @@ public class TaskA {
         Files.lines(Paths.get(filename))
                 .forEach(System.out::println);
 
-    } catch (IIOException e) {
-        throw new RuntimeException(e);
     } catch (IOException e) {
-            e.printStackTrace();
+        throw new RuntimeException(e);
         }
     }
-    private static String getPath(Class<?> aClass) {
-        String packageName = aClass
+
+    private static String getPath() {
+        String packageName = TaskA.class
                 .getPackage()
                 .getName()
                 .replace(".", File.separator)
