@@ -7,10 +7,20 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class TaskA {
-
     private static final String USER_DIR = "user.dir";
     private static final String SRC = "src";
     private static final String MATRIX_TXT = "matrix.txt";
+
+    private static String getPath() {
+        String packageName = TaskA.class
+                .getPackage()
+                .getName()
+                .replace(".", File.separator)
+                .concat(File.separator);
+        String root = System.getProperty(USER_DIR);
+        return root + File.separator + SRC +
+                File.separator + packageName;
+    }
 
     public static void main(String[] args) {
         int[][] array = new int[6][4];
@@ -27,22 +37,12 @@ public class TaskA {
                     writer.printf("%3d ", value);
                 }
                 writer.println();
-        }
-        Files.lines(Paths.get(filename))
-                .forEach(System.out::println);
+            }
+            Files.lines(Paths.get(filename))
+                    .forEach(System.out::println);
 
-    } catch (IOException e) {
-        throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-    }
-
-    private static String getPath() {
-        String packageName = TaskA.class
-                .getPackage()
-                .getName()
-                .replace(".", File.separator)
-                .concat(File.separator);
-        String root = System.getProperty(USER_DIR);
-        return root + File.separator + SRC + File.separator + packageName;
     }
 }
