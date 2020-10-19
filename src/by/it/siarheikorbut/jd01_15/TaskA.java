@@ -6,10 +6,10 @@ import java.util.Random;
 public class TaskA {
     public static void main(String[] args) {
         int[][] array = new int[6][4];
-        Random rnd = new Random();
+        Random r = new Random();
         for (int[] row : array) {
             for (int i = 0; i < row.length; i++) {
-                row[i] = -15 + rnd.nextInt(31);
+                row[i] = -15 + r.nextInt(31);
             }
         }
         String path = getPath() + "matrix.txt";
