@@ -1,48 +1,44 @@
 package by.it.siarheikorbut.jd01_15;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.*;
+import java.util.Random;
 
 public class TaskA {
-    private static final String USER_DIR = "user.dir";
-    private static final String SRC = "src";
-    private static final String MATRIX_TXT = "matrix.txt";
-
-    private static String getPath() {
-        String packageName = TaskA.class
-                .getPackage()
-                .getName()
-                .replace(".", File.separator)
-                .concat(File.separator);
-        String root = System.getProperty(USER_DIR);
-        return root + File.separator + SRC +
-                File.separator + packageName;
-    }
-
     public static void main(String[] args) {
         int[][] array = new int[6][4];
-        for (int i = 0, arrayLength = array.length; i < arrayLength; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = -15 + (int) (Math.random() * 31);
+        Random rnd = new Random();
+        for (int[] row : array) {
+            for (int i = 0; i < row.length; i++) {
+                row[i] = -15 + rnd.nextInt(31);
             }
         }
-
-        String filename = getPath() + MATRIX_TXT;
-        try (PrintWriter writer = new PrintWriter(filename)) {
+        String path = getPath() + "matrix.txt";
+        try (PrintWriter writer = new PrintWriter(path)) {
             for (int[] row : array) {
-                for (int value : row) {
-                    writer.printf("%3d ", value);
+                for (int i : row) {
+                    writer.printf("%3d ", i);
                 }
                 writer.println();
             }
-            Files.lines(Paths.get(filename))
-                    .forEach(System.out::println);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            while (reader.ready()) {
+                System.out.println(reader.readLine());
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private static String getPath() {
+        String rootProject = System.getProperty("user.dir");
+        String relativePath = TaskA.class
+                .getName()
+                .replace(TaskA.class.getSimpleName(), "")
+                .replace(".", File.separator);
+        return rootProject + File.separator + "src" + File.separator + relativePath;
     }
 }
