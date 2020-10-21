@@ -1,4 +1,4 @@
-package by.it.siarheikorbut.jd_02_01;
+package by.it.siarheikorbut.jd02_01;
 
 public class Buyer extends Thread implements IBuyer {
     public Buyer(int number) {

@@ -1,4 +1,4 @@
-package by.it.siarheikorbut.jd_02_01;
+package by.it.siarheikorbut.jd02_01;
 
 import java.util.Random;
 
