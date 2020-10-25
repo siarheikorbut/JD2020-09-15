@@ -14,33 +14,33 @@ public class TaskB2 {
         Pattern p1 = Pattern.compile("[. ]{4}[а-я]");
         Matcher m1 = p1.matcher(sb);
 
-        //заменим троеточие
+        //Замена троеточия
         replace(sb, m1);
         Pattern p2 = Pattern.compile("[-,:\\na-zA-Z]");
         Matcher m2 = p2.matcher(sb);
 
-        //заменим небуквенные символы
+        //Замена небуквенных символов
         replaceNotLetterSymbol(sb, m2);
         Pattern p3 = Pattern.compile("[!?]+");
         Matcher m3 = p3.matcher(sb);
 
-        //заменим символы конца предложения на "."
+        //Замениа символов конца предложения на "."
         replaceEndSentence(sb, m3);
         Pattern p4 = Pattern.compile("[ ]{2,}");
         Matcher m4 = p4.matcher(sb);
 
-        //заменим повтояриющиеся пробелы
+        //Замена повтояриющихся пробелов
         replaceSeveralSpaces(sb, m4);
         String varString = sb.toString();
 
-        //создадим массив строк для преложений
+        //Создание массива строк для предложений
         String[] arrayStrings;
         arrayStrings = varString.trim().split("[.]");
 
-        //обрежем пробелы в начале и конце каждого предложения
+        //Обрезание пробелов в начале и конце каждого предложения
         trimSpaces(arrayStrings);
 
-        //сортируем массив по возрастанию
+        //Сортировка массива по возрастанию
         arraySort(arrayStrings);
         printArray(arrayStrings);
     }
