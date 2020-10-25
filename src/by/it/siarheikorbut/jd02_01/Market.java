@@ -1,30 +1,20 @@
 package by.it.siarheikorbut.jd02_01;
 
-import java.util.ArrayList;
-
 public class Market {
     public static void main(String[] args) {
-        System.out.println("Market opened");
-        ArrayList<Buyer> buyers = new ArrayList<>();
+        System.out.println("Store is open!");
         int number = 0;
-        for (int timeSecond = 1; timeSecond <= 120; timeSecond++) {
-            int countBuyer = Helper.getRandom();
-            for (int i = 0; i < countBuyer; i++) {
+        for (int i = 0; i < 120; i++) {
+            for (int j = 0; j < Helper.getRandom(0, 2); j++) {
                 Buyer buyer = new Buyer(++number);
                 buyer.start();
-                buyers.add(buyer);
                 Dispatcher.BUYERS_IN_SHOP++;
             }
             Helper.mySleep(1000);
         }
-        for (Buyer buyer : buyers) {
-            try {
-                buyer.join();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-
+        while (Dispatcher.BUYERS_IN_SHOP > 0) {
+            Thread.yield();
         }
-        System.out.println("Market closed.");
+        System.out.println("Market closed!");
     }
 }
