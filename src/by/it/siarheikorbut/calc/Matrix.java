@@ -4,9 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Matrix extends Var {
-    private double[][] value;
 
-    Matrix(double[][] value) throws CalcException {
+    private final double[][] value;
+
+    Matrix(double[][] value) {
         double[][] tempArr = new double[value.length][value[0].length];
         for (int i = 0; i < value.length; i++) {
             System.arraycopy(value[i], 0, tempArr[i], 0, value[0].length);
@@ -14,12 +15,13 @@ public class Matrix extends Var {
         this.value = tempArr;
     }
 
-    Matrix(Matrix matrix) throws CalcException {
+    Matrix(Matrix matrix) {
         double[][] tempArr = new double[matrix.value.length][matrix.value[0].length];
         for (int i = 0; i < tempArr.length; i++) {
             System.arraycopy(matrix.value[i], 0, tempArr[i], 0, tempArr.length);
         }
         this.value = tempArr;
+
     }
 
     Matrix(String strMatrix) {
@@ -85,10 +87,6 @@ public class Matrix extends Var {
     @Override
     public Var add(Var other) throws CalcException {
         if (other instanceof Matrix) {
-            double[][] temp = ((Matrix) other).getValue();
-            if (value[0].length != temp[0].length) {
-                throw new CalcException("Недопустимый размер матриц!");
-            }
             double[][] result = new double[value.length][value[0].length];
             for (int i = 0; i < result.length; i++) {
                 System.arraycopy(value[i], 0, result[i], 0, result.length);
@@ -115,17 +113,10 @@ public class Matrix extends Var {
         }
     }
 
-    private double[][] getValue() {
-        return value;
-    }
 
     @Override
     public Var sub(Var other) throws CalcException {
         if (other instanceof Matrix) {
-            double[][] temp = ((Matrix) other).getValue();
-            if (value[0].length != temp[0].length) {
-                throw new CalcException("Недопустимый размер матриц!");
-            }
             double[][] result = new double[value.length][value[0].length];
             for (int i = 0; i < result.length; i++) {
                 System.arraycopy(value[i], 0, result[i], 0, result.length);
