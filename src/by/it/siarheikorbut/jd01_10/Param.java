@@ -11,9 +11,9 @@ import java.lang.annotation.Target;
  */
 
 //Создание аннотации которая описывает параметры для процедуры тестирования произвольного метода.
-@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-@interface Param {
+@Target(ElementType.METHOD)
+public @interface Param {
     int a();
 
     int b();

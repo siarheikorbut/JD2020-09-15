@@ -6,23 +6,22 @@ package by.it.siarheikorbut.jd01_10;
  */
 
 public class Bean {
-    @Param(a = 5, b = 8)
-    static double sum(int a, int b) {
-        System.out.println(a + b);
+    @Param(a = 22, b = 5)
+    double sum(int a, int b) {
         return a + b;
     }
 
-    @Param(a = 333, b = 666)
-    static double max(int a, int b) {
+    @Param(a = 25, b = 50)
+    double max(int a, int b) {
         return Math.max(a, b);
     }
 
-    @Param(a = 345, b = 456)
-    double min(int a, int b) {
-        return Math.min(a, b);
+    @Param(a = 22, b = 55)
+    static double avg(int a, int b) {
+        return (a + b) / 2.0;
     }
 
-    double avg(int a, int b) {
-        return (a + b) / 2.0;
+    static double min(int a, int b) {
+        return Math.min(a, b);
     }
 }
