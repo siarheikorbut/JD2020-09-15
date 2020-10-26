@@ -2,6 +2,7 @@ package by.it.siarheikorbut.calc;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 public class Matrix extends Var {
 
@@ -9,17 +10,13 @@ public class Matrix extends Var {
 
     Matrix(double[][] value) {
         double[][] tempArr = new double[value.length][value[0].length];
-        for (int i = 0; i < value.length; i++) {
-            System.arraycopy(value[i], 0, tempArr[i], 0, value[0].length);
-        }
+        IntStream.range(0, value.length).forEach(i -> System.arraycopy(value[i], 0, tempArr[i], 0, value[0].length));
         this.value = tempArr;
     }
 
     Matrix(Matrix matrix) {
         double[][] tempArr = new double[matrix.value.length][matrix.value[0].length];
-        for (int i = 0; i < tempArr.length; i++) {
-            System.arraycopy(matrix.value[i], 0, tempArr[i], 0, tempArr.length);
-        }
+        IntStream.range(0, tempArr.length).forEach(i -> System.arraycopy(matrix.value[i], 0, tempArr[i], 0, tempArr.length));
         this.value = tempArr;
 
     }
@@ -88,9 +85,7 @@ public class Matrix extends Var {
     public Var add(Var other) throws CalcException {
         if (other instanceof Matrix) {
             double[][] result = new double[value.length][value[0].length];
-            for (int i = 0; i < result.length; i++) {
-                System.arraycopy(value[i], 0, result[i], 0, result.length);
-            }
+            IntStream.range(0, result.length).forEach(i -> System.arraycopy(value[i], 0, result[i], 0, result.length));
             for (int i = 0; i < result.length; i++) {
                 for (int j = 0; j < result.length; j++) {
                     result[i][j] += ((Matrix) other).value[i][j];
@@ -113,14 +108,11 @@ public class Matrix extends Var {
         }
     }
 
-
     @Override
     public Var sub(Var other) throws CalcException {
         if (other instanceof Matrix) {
             double[][] result = new double[value.length][value[0].length];
-            for (int i = 0; i < result.length; i++) {
-                System.arraycopy(value[i], 0, result[i], 0, result.length);
-            }
+            IntStream.range(0, result.length).forEach(i -> System.arraycopy(value[i], 0, result[i], 0, result.length));
             for (int i = 0; i < result.length; i++) {
                 for (int j = 0; j < result.length; j++) {
                     result[i][j] -= ((Matrix) other).value[i][j];
