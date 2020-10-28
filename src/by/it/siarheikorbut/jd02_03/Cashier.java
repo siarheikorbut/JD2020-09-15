@@ -40,3 +40,4 @@ public class Cashier implements Runnable {
         return name;
     }
 }
+
