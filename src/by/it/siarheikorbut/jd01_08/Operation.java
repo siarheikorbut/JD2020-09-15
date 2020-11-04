@@ -8,4 +8,6 @@ interface Operation {
     Var mul(Var other);
 
     Var div(Var other);
+
+    String getYourClass(Var other);
 }
