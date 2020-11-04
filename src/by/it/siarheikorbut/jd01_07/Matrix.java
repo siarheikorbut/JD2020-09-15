@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 /**
  * @author Siarhei Korbut
- * @see <a href="https://drive.google.com/file/d/1TJnuaS3yKKmJURuLfRdT_3q1cc7uf8oU/view?usp=sharing">Задание JD01_07 ( C )</a>
+ * @see <a href="https://drive.google.com/file/d/1TJnuaS3yKKmJURuLfRdT_3q1cc7uf8oU/view?usp=sharing">Задание JD01_07</a>
  */
 
 class Matrix extends Var {
