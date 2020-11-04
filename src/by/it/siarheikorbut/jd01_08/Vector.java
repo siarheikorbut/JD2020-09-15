@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @author Siarhei Korbut
- * @see <a href="https://drive.google.com/file/d/1jYVzPAxyV5XrFvrWvf-DEkSx9feVHEDz/view?usp=sharing">Задание JD01_08 ( B )</a>
+ * @see <a href="https://drive.google.com/file/d/1jYVzPAxyV5XrFvrWvf-DEkSx9feVHEDz/view?usp=sharing">Задание JD01_08</a>
  */
 
 class Vector extends Var {

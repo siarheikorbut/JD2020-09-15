@@ -2,7 +2,7 @@ package by.it.siarheikorbut.jd01_08;
 
 /**
  * @author Siarhei Korbut
- * @see <a href="https://drive.google.com/file/d/1jYVzPAxyV5XrFvrWvf-DEkSx9feVHEDz/view?usp=sharing">Задание JD01_08 ( A )</a>
+ * @see <a href="https://drive.google.com/file/d/1jYVzPAxyV5XrFvrWvf-DEkSx9feVHEDz/view?usp=sharing">Задание JD01_08</a>
  */
 
 class Scalar extends Var {
