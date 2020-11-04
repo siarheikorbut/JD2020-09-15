@@ -7,10 +7,11 @@ import java.util.*;
  * @see <a href="https://drive.google.com/file/d/1Dtmq3a65M1AIORy_S6eC7CHwxX6PCQGB/view?usp=sharing">Задание JD01_11</a>
  */
 
-public class ListA<T> implements List<T> {
+public class ListB<T> implements List<T> {
 
     private T[] elements = (T[]) new Object[]{};
     private int size = 0;
+
 
     @Override
     public boolean add(T element) {
@@ -55,12 +56,39 @@ public class ListA<T> implements List<T> {
     }
 
     @Override
+    public T set(int index, T e) {
+        T old = elements[index];
+        elements[index] = e;
+        return old;
+    }
+
+    @Override
+    public void add(int index, T element) {
+        elements = Arrays.copyOf(elements, elements.length * 3 / 2 + 1);
+        size++;
+        if (size - 1 - index >= 0) System.arraycopy(elements, index, elements, index + 1, size - 1 - index);
+        elements[index] = element;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends T> c) {
+        Object[] a = c.toArray();
+        elements = Arrays.copyOf(elements, elements.length + a.length);
+        System.arraycopy(a, 0, elements, size, a.length);
+        size += a.length;
+        return a.length != 0;
+    }
+
+    @Override
     public boolean isEmpty() {
         return false;
     }
 
     @Override
     public boolean contains(Object o) {
+        for (T element : elements) {
+            if (element == o) return true;
+        }
         return false;
     }
 
@@ -71,12 +99,18 @@ public class ListA<T> implements List<T> {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        return Arrays.copyOf(elements, size);
     }
 
     @Override
     public <T> T[] toArray(T[] a) {
-        return null;
+        if (a.length < size)
+            // Make a new array of a's runtime type, but my contents:
+            return (T[]) Arrays.copyOf(elements, size, a.getClass());
+        System.arraycopy(elements, 0, a, 0, size);
+        if (a.length > size)
+            a[size] = null;
+        return a;
     }
 
     @Override
@@ -86,11 +120,6 @@ public class ListA<T> implements List<T> {
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends T> c) {
         return false;
     }
 
@@ -115,18 +144,11 @@ public class ListA<T> implements List<T> {
     }
 
     @Override
-    public T set(int index, T element) {
-        return null;
-    }
-
-    @Override
-    public void add(int index, T element) {
-
-    }
-
-    @Override
     public int indexOf(Object o) {
-        return 0;
+        for (int index = 0; index < size; index++) {
+            if (elements[index] == o) return index;
+        }
+        return -1;
     }
 
     @Override
