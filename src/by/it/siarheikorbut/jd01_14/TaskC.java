@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * @author Siarhei Korbut
- * @see <a href="https://drive.google.com/file/d/1HyLarqxY-TWlB5f_c1_zolEUaMh5gd7T/view?usp=sharing">Задание JD01_13</a>
+ * @see <a href="https://drive.google.com/file/d/1HyLarqxY-TWlB5f_c1_zolEUaMh5gd7T/view?usp=sharing">Задание JD01_14</a>
  */
 
 public class TaskC {
