@@ -31,7 +31,6 @@ public class TaskB {
                 System.out.println();
             }
         }
-
     }
 
     //Вывод в консоль названий месяцев.
