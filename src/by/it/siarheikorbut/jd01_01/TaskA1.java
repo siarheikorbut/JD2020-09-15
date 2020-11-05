@@ -13,6 +13,5 @@ class TaskA1 {
 
         //Вывод строки на экран.
         System.out.println("Hello world!");
-
     }
 }

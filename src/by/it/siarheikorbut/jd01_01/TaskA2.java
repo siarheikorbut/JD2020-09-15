@@ -17,5 +17,4 @@ class TaskA2 {
             System.out.println(a);
         }
     }
-
 }
